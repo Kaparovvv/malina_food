@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/image_helper.dart';
@@ -21,7 +23,6 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(
       const Duration(milliseconds: 500),
     );
-    // ignore: use_build_context_synchronously
     return Navigator.pushReplacement(
       context,
       MaterialPageRoute(
