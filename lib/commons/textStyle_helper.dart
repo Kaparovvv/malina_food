@@ -16,4 +16,18 @@ class TextStyleHelper {
     fontWeight: FontWeight.w500,
     color: ThemeHelper.greyDial,
   );
+
+  static TextStyle hintText = TextStyle(
+    fontSize: 14.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w400,
+    color: ThemeHelper.greyDial.withOpacity(0.87),
+  );
+
+  static TextStyle f14w700 = TextStyle(
+    fontSize: 14.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w700,
+    color: ThemeHelper.white,
+  );
 }
