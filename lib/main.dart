@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
 import 'package:malina_app/screens/splash_screen/splash_screen.dart';
 
 ///Bismillah
@@ -18,12 +19,11 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          canvasColor: Colors.white
-        ),
-        home: const SplashScreen(),
+        theme: ThemeData(canvasColor: Colors.white),
+        home: const
+            // AuthScreen(),
+            SplashScreen(),
       ),
     );
   }
 }
-

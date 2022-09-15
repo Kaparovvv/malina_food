@@ -8,7 +8,11 @@ class IconHelper {
   static String searchIcon = 'assets/icons/search.png';
   static String notifyTrue = 'assets/icons/notify_true.png';
   static String notifyFalse = 'assets/icons/notify_false.png';
-  static String notify1 = 'assets/icons/notify1.png';
   static String ellipse = 'assets/icons/ellipse.png';
+  static String logoIcon = 'assets/icons/logo_icon.png';
+  static String commentIcon = 'assets/icons/comment.png';
+  static String deliveryIcon = 'assets/icons/delivery_icon.png';
+  static String agreementIcon = 'assets/icons/agreement_icon.png';
+  static String cardIcon = 'assets/icons/card_icon.png';
 
 }
