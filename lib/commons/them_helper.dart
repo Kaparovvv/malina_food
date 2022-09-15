@@ -12,5 +12,9 @@ class ThemeHelper{
   static Color rgba10 = const Color(0xff0A114F);
   static Color blackDial = const Color(0xff1D1D1D);
   static Color navBarShadow = const Color.fromRGBO(0, 0, 0, 0.2);
+  static Color textFieldColor = const Color(0xffEEEEEE);
+  static Color backBlur = const Color(0xff86B1E3);
+
+
 
 }

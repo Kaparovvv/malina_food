@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
-import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/screens/basket_screen/basket_screen.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
@@ -34,7 +33,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _widgetOptions[WidgetState.currentIndex],
-      bottomSheet: Container(
+      bottomNavigationBar: Container(
         width: 1.sw,
         height: 56.h,
         decoration: BoxDecoration(
