@@ -30,4 +30,46 @@ class TextStyleHelper {
     fontWeight: FontWeight.w700,
     color: ThemeHelper.white,
   );
+
+  static TextStyle f12w500 = TextStyle(
+    fontSize: 12.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w500,
+    color: ThemeHelper.white,
+  );
+
+  static TextStyle f20w500black = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w500,
+    color: ThemeHelper.blackDial,
+  );
+
+  static TextStyle f14w500white = TextStyle(
+    fontSize: 14.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w500,
+    color: ThemeHelper.white,
+  );
+
+  static TextStyle f24w800black = TextStyle(
+    fontSize: 24.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w800,
+    color: ThemeHelper.black,
+  );
+
+  static TextStyle f14w400c1C1C1C = TextStyle(
+    fontSize: 14.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w400,
+    color: ThemeHelper.c1C1C1C,
+  );
+
+  static TextStyle f16w600white = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w600,
+    color: ThemeHelper.white,
+  );
 }

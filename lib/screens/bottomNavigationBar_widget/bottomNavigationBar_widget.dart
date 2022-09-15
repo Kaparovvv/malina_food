@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
 import 'package:malina_app/screens/basket_screen/basket_screen.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
 import 'package:malina_app/screens/feed_screen/feed_screen.dart';
@@ -33,6 +34,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _widgetOptions[WidgetState.currentIndex],
+      // body: const AuthScreen(),
       bottomNavigationBar: Container(
         width: 1.sw,
         height: 56.h,

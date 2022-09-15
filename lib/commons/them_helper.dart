@@ -1,6 +1,6 @@
 import 'package:flutter/animation.dart';
 
-class ThemeHelper{
+class ThemeHelper {
   static Color white = const Color(0xffffffff);
   static Color bejGray = const Color(0xffF4F4F0);
   static Color lightGrey = const Color(0xffDBDBDB);
@@ -14,7 +14,8 @@ class ThemeHelper{
   static Color navBarShadow = const Color.fromRGBO(0, 0, 0, 0.2);
   static Color textFieldColor = const Color(0xffEEEEEE);
   static Color backBlur = const Color(0xff86B1E3);
-
-
+  static Color black = const Color(0xff000000);
+  static Color c1C1C1C = const Color(0xff1C1C1C);
+  static Color shadowBox1 = const Color.fromRGBO(0, 0, 0, 0.05);
 
 }

@@ -1,5 +1,6 @@
 class ImageHelper{
   static String splashScreen = 'assets/images/splash_screen.png';
   static String userPhoto = 'assets/images/user_photo.png';
-
+  static String food = 'assets/images/food.png';
+  static String malinaFood = 'assets/images/malina_food.png';
 }

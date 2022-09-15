@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/global_widgets/circle_cached_network_image.dart';
+import 'package:malina_app/global_widgets/widgets_helpers.dart';
 
 class UserBoxWidget extends StatelessWidget {
   final String imageUrl;
@@ -67,26 +67,26 @@ class UserBoxWidget extends StatelessWidget {
                 icon: isNotify
                     ? Stack(
                         children: [
-                          ImageIcon(
-                            AssetImage(IconHelper.notify1),
-                            size: 18,
-                            color: ThemeHelper.white,
+                          WidgetsHelpers().imageIcon(
+                            IconHelper.notifyTrue,
+                            18,
+                            ThemeHelper.white,
                           ),
                           Positioned(
                             top: 2.7.h,
                             left: 9.w,
-                            child: ImageIcon(
-                              AssetImage(IconHelper.ellipse),
-                              size: 8,
-                              color: ThemeHelper.crimson,
+                            child: WidgetsHelpers().imageIcon(
+                              IconHelper.ellipse,
+                              8,
+                              ThemeHelper.crimson,
                             ),
                           ),
                         ],
                       )
-                    : ImageIcon(
-                        AssetImage(IconHelper.notifyFalse),
-                        size: 18,
-                        color: ThemeHelper.white,
+                    : WidgetsHelpers().imageIcon(
+                        IconHelper.notifyFalse,
+                        18,
+                        ThemeHelper.white,
                       ),
               ),
             ],

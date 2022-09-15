@@ -7,9 +7,9 @@ class BasketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('BasketScreen'),
+        child: Center(),
       ),
-      
     );
   }
 }
+
