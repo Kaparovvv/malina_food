@@ -3,4 +3,5 @@ class ImageHelper{
   static String userPhoto = 'assets/images/user_photo.png';
   static String food = 'assets/images/food.png';
   static String malinaFood = 'assets/images/malina_food.png';
+  static String appLogo = 'assets/images/app_logo.png';
 }

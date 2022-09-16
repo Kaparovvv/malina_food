@@ -17,7 +17,7 @@ class ShowDialogWidget extends StatelessWidget {
       content: Text(
         'Скоро будет доступно',
         textAlign: TextAlign.center,
-        style: TextStyleHelper.f20w500black,
+        style: TextStyleHelper.f20w500.copyWith(color: ThemeHelper.blackDial),
       ),
       iconPadding: EdgeInsets.only(left: 250.w, right: 18.w, top: 20.h),
       icon: IconButton(
@@ -36,7 +36,7 @@ class ShowDialogWidget extends StatelessWidget {
             width: 198,
             height: 45,
             onPressed: () => Navigator.pop(context),
-            textStyle: TextStyleHelper.f14w500white,
+            textStyle: TextStyleHelper.f14w500.copyWith(color: ThemeHelper.white),
           ),
         ),
       ],

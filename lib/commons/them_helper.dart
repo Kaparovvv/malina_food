@@ -2,6 +2,7 @@ import 'package:flutter/animation.dart';
 
 class ThemeHelper {
   static Color white = const Color(0xffffffff);
+  static Color rgba196 = const Color(0xffC4C4C4);
   static Color bejGray = const Color(0xffF4F4F0);
   static Color lightGrey = const Color(0xffDBDBDB);
   static Color greyDial = const Color(0xff777777);
@@ -17,5 +18,5 @@ class ThemeHelper {
   static Color black = const Color(0xff000000);
   static Color c1C1C1C = const Color(0xff1C1C1C);
   static Color shadowBox1 = const Color.fromRGBO(0, 0, 0, 0.05);
-
+  static Color dividerColor = const Color(0xffECECEF);
 }

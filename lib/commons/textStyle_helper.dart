@@ -17,7 +17,7 @@ class TextStyleHelper {
     color: ThemeHelper.greyDial,
   );
 
-  static TextStyle hintText = TextStyle(
+  static TextStyle hintTextSearch = TextStyle(
     fontSize: 14.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w400,
@@ -28,48 +28,65 @@ class TextStyleHelper {
     fontSize: 14.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w700,
-    color: ThemeHelper.white,
+  );
+
+  static TextStyle f12w400 = TextStyle(
+    fontSize: 12.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w400,
   );
 
   static TextStyle f12w500 = TextStyle(
     fontSize: 12.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w500,
-    color: ThemeHelper.white,
   );
 
-  static TextStyle f20w500black = TextStyle(
+  static TextStyle f20w500 = TextStyle(
     fontSize: 20.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w500,
-    color: ThemeHelper.blackDial,
   );
 
-  static TextStyle f14w500white = TextStyle(
+  static TextStyle f14w500 = TextStyle(
     fontSize: 14.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w500,
-    color: ThemeHelper.white,
   );
 
-  static TextStyle f24w800black = TextStyle(
+  static TextStyle f24w800 = TextStyle(
     fontSize: 24.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w800,
-    color: ThemeHelper.black,
   );
 
-  static TextStyle f14w400c1C1C1C = TextStyle(
+  static TextStyle f14w400 = TextStyle(
     fontSize: 14.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w400,
-    color: ThemeHelper.c1C1C1C,
   );
 
-  static TextStyle f16w600white = TextStyle(
+  static TextStyle f16w600 = TextStyle(
     fontSize: 16.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w600,
-    color: ThemeHelper.white,
+  );
+
+  static TextStyle f16w500 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle f18w600 = TextStyle(
+    fontSize: 18.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle f18w400 = TextStyle(
+    fontSize: 18.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w400,
   );
 }
