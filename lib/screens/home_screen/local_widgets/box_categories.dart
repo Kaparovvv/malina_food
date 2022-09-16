@@ -46,7 +46,7 @@ class BoxCategories extends StatelessWidget {
                 categoriesName!,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyleHelper.f12w500,
+                style: TextStyleHelper.f12w500.copyWith(color: ThemeHelper.white),
               ),
             ),
           ),

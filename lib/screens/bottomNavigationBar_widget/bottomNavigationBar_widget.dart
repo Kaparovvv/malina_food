@@ -7,7 +7,6 @@ import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen
 import 'package:malina_app/screens/basket_screen/basket_screen.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
 import 'package:malina_app/screens/feed_screen/feed_screen.dart';
-import 'package:malina_app/screens/home_screen/home_screen.dart';
 import 'package:malina_app/screens/profile_screen/profile_screen.dart';
 import 'package:malina_app/screens/qr_code_screen/qr_code_screen.dart';
 
@@ -23,7 +22,8 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int currentIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
+    // cons3t HomeScreen(),
+    const AuthScreen(),
     const FeedScreen(),
     const QrCodeScreen(),
     const BasketScreen(),
@@ -80,28 +80,32 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 });
               },
             ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  WidgetState.isBacket = false;
-                  WidgetState.isProfile = false;
-                  WidgetState.isQrCode = false;
-                  WidgetState.isFeed = false;
-                });
-                WidgetState.currentIndex = 0;
-              },
-              child: Container(
-                width: 46.w,
-                height: 46.h,
-                decoration: BoxDecoration(
-                  color: ThemeHelper.crimson,
-                  shape: BoxShape.circle,
-                ),
-                child: Image.asset(
-                  IconHelper.mainScreenIcon,
-                  width: 18.w,
-                  height: 18.h,
-                  color: ThemeHelper.white,
+            Material(
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    WidgetState.isBacket = false;
+                    WidgetState.isProfile = false;
+                    WidgetState.isQrCode = false;
+                    WidgetState.isFeed = false;
+                  });
+                  WidgetState.currentIndex = 0;
+                },
+                borderRadius: BorderRadius.circular(46.r),
+                splashColor: ThemeHelper.bejGray,
+                child: Ink(
+                  width: 46.w,
+                  height: 46.h,
+                  decoration: BoxDecoration(
+                    color: ThemeHelper.crimson,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    IconHelper.mainScreenIcon,
+                    width: 18.w,
+                    height: 18.h,
+                    color: ThemeHelper.white,
+                  ),
                 ),
               ),
             ),

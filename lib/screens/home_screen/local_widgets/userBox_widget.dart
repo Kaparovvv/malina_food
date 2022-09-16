@@ -57,7 +57,7 @@ class UserBoxWidget extends StatelessWidget {
                   SizedBox(width: 10.w),
                   Text(
                     userName,
-                    style: TextStyleHelper.f14w700,
+                    style: TextStyleHelper.f14w700.copyWith(color: ThemeHelper.white),
                   ),
                 ],
               ),

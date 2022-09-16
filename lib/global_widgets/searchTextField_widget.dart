@@ -35,7 +35,7 @@ class SerchTextFieldWidget extends StatelessWidget {
             color: ThemeHelper.greyDial,
           ),
           hintText: 'Поиск',
-          hintStyle: TextStyleHelper.hintText,
+          hintStyle: TextStyleHelper.hintTextSearch,
         ),
       ),
     );

@@ -18,31 +18,32 @@ class CustomBarItewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        onTap();
-      },
-      splashColor: ThemeHelper.blackDial,
-      child: Column(
-        children: [
-          Container(
-            height: 1.5.h,
-            width: 35.w,
-            color: isState ? ThemeHelper.crimson : Colors.transparent,
-          ),
-          SizedBox(height: 8.h),
-          ImageIcon(
-            AssetImage(iconName),
-            color: isState ? ThemeHelper.crimson : ThemeHelper.greyDial,
-          ),
-          SizedBox(height: 3.h),
-          Text(
-            labelText,
-            style: isState
-                ? TextStyleHelper.seletedLabel
-                : TextStyleHelper.unseletedLabel,
-          ),
-        ],
+    return Material(
+      child: InkWell(
+        onTap: () => onTap(),
+        splashColor: ThemeHelper.crimson.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(100.r),
+        child: Column(
+          children: [
+            Container(
+              height: 1.5.h,
+              width: 35.w,
+              color: isState ? ThemeHelper.crimson : Colors.transparent,
+            ),
+            SizedBox(height: 8.h),
+            ImageIcon(
+              AssetImage(iconName),
+              color: isState ? ThemeHelper.crimson : ThemeHelper.greyDial,
+            ),
+            SizedBox(height: 3.h),
+            Text(
+              labelText,
+              style: isState
+                  ? TextStyleHelper.seletedLabel
+                  : TextStyleHelper.unseletedLabel,
+            ),
+          ],
+        ),
       ),
     );
   }
