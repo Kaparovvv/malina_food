@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
-import 'package:malina_app/screens/basket_screen/basket_screen.dart';
+import 'package:malina_app/screens/cart_screen/cart_screen.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
 import 'package:malina_app/screens/feed_screen/feed_screen.dart';
+import 'package:malina_app/screens/main_screens/categories_screen/categories_screen.dart';
 import 'package:malina_app/screens/profile_screen/profile_screen.dart';
 import 'package:malina_app/screens/qr_code_screen/qr_code_screen.dart';
 
@@ -22,11 +22,11 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int currentIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    // cons3t HomeScreen(),
-    const AuthScreen(),
+    const HomeScreen(),
+    // const AuthScreen(),
     const FeedScreen(),
     const QrCodeScreen(),
-    const BasketScreen(),
+    const CartScreen(),
     const ProfileScreen(),
   ];
 
@@ -143,4 +143,3 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     );
   }
 }
-

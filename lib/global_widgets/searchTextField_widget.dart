@@ -4,13 +4,15 @@ import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 
-class SerchTextFieldWidget extends StatelessWidget {
+class SearchTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final double width;
-  const SerchTextFieldWidget({
+  final Color fillColor;
+  const SearchTextFieldWidget({
     Key? key,
     required this.controller,
     required this.width,
+    required this.fillColor,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class SerchTextFieldWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
           ),
           filled: true,
-          fillColor: ThemeHelper.textFieldColor,
+          fillColor: fillColor,
           prefixIcon: ImageIcon(
             AssetImage(IconHelper.searchIcon),
             size: 16,
