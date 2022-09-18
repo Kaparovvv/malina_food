@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/home_screen/local_widgets/show_dialog_widget.dart';
+import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/show_dialog_widget.dart';
 
 class BoxCategories extends StatelessWidget {
   final String? categoriesName;

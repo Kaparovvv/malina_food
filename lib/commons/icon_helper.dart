@@ -14,5 +14,11 @@ class IconHelper {
   static String deliveryIcon = 'assets/icons/delivery_icon.png';
   static String agreementIcon = 'assets/icons/agreement_icon.png';
   static String cardIcon = 'assets/icons/card_icon.png';
-
+  static String notifyFalseCont = 'assets/icons/notifyFalse_cont.png';
+  static String notifyTrueCont = 'assets/icons/notifyTrue_cont.png';
+  static String restaurent = 'assets/icons/restaurant.png';
+  static String bookmarks = 'assets/icons/bookmarks.png';
+  static String location = 'assets/icons/location.png';
+  static String iconStar = 'assets/icons/star.png';
+  static String iconDiscount = 'assets/icons/icon_discount.png';
 }

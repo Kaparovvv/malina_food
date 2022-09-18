@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/image_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/searchTextField_widget.dart';
-import 'package:malina_app/screens/home_screen/bloc/categories_bloc.dart';
-import 'package:malina_app/screens/home_screen/local_widgets/box_categories.dart';
-import 'package:malina_app/screens/home_screen/local_widgets/userBox_widget.dart';
+import 'package:malina_app/screens/main_screens/categories_screen/bloc/categories_bloc.dart';
+import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/box_categories.dart';
+import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/userBox_widget.dart';
+import 'package:malina_app/screens/main_screens/subcategories_screen.dart/subcategories_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -42,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   notifyTab: () {},
                 ),
                 SizedBox(height: 19.h),
-                SerchTextFieldWidget(
+                SearchTextFieldWidget(
+                  fillColor: ThemeHelper.rgb238,
                   width: 302,
                   controller: TextEditingController(),
                 ),
@@ -67,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     }
-          
+
                     if (state is LoadedCategoriesState) {
                       return SizedBox(
                         width: 1.sw,
@@ -82,8 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             categoriesName:
                                 state.categoriesList[index].categoriesName,
                             imageUrl: state.categoriesList[index].imageUrl,
-                            isAvailable: state.categoriesList[index].isAvailable!,
-                            onTab: () {},
+                            isAvailable:
+                                state.categoriesList[index].isAvailable!,
+                            onTab: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SubcategoriesScreen(),
+                              ),
+                            ),
                           ),
                         ),
                       );
