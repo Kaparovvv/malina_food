@@ -1,6 +1,5 @@
 part of 'categories_bloc.dart';
 
-@immutable
 abstract class CategoriesState {}
 
 class CategoriesInitial extends CategoriesState {}
@@ -8,13 +7,13 @@ class CategoriesInitial extends CategoriesState {}
 class LoadingCategoriesState extends CategoriesState {}
 
 class LoadedCategoriesState extends CategoriesState {
-  final List<CategoriesModel> categoriesList;
+  final CategoriesModel categoriesModelList;
 
-  LoadedCategoriesState({required this.categoriesList});
+  LoadedCategoriesState({required this.categoriesModelList});
 }
 
 class ErrorCategoriesState extends CategoriesState {
-  final String? message;
+  final CatchException? message;
 
-  ErrorCategoriesState(this.message);
+  ErrorCategoriesState({required this.message});
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/show_dialog_widget.dart';
 
 class BoxCategories extends StatelessWidget {
@@ -31,25 +32,36 @@ class BoxCategories extends StatelessWidget {
             ),
       child: Stack(
         children: [
-          Container(
-            width: 94.w,
-            height: 94.h,
-            decoration: BoxDecoration(
+          Stack(children: [
+            CustomCachedNetworkImage(
+              imageUrl: imageUrl,
+              width: 94,
+              height: 94,
               borderRadius: BorderRadius.circular(5.r),
-              image: DecorationImage(
-                image: AssetImage(imageUrl!),
-              ),
             ),
-            child: Padding(
-              padding: EdgeInsets.only(left: 9.w, top: 9.h, right: 9),
+            Positioned(
+              left: 9.w,
+              top: 9.h,
+              right: 9.w,
               child: Text(
                 categoriesName!,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyleHelper.f12w500.copyWith(color: ThemeHelper.white),
+                style:
+                    TextStyleHelper.f12w500.copyWith(color: ThemeHelper.white),
               ),
             ),
-          ),
+          ]),
+          // Container(
+          //   width: 94.w,
+          //   height: 94.h,
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(5.r),
+          //     image: DecorationImage(
+          //       image: AssetImage(imageUrl ?? ''),
+          //     ),
+          //   ),
+
           isAvailable
               ? const SizedBox()
               : Container(

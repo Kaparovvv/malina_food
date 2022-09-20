@@ -6,10 +6,10 @@ import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 
 class SubcategoriesAppBar {
-  AppBar appBar(String title, Function() onTabLeading, Function() onTabAction) {
+  AppBar appBar(String title, Color color, Function() onTabLeading, Function() onTabAction) {
     return AppBar(
       elevation: 0,
-      backgroundColor: ThemeHelper.rgb239,
+      backgroundColor: color,
       leading: IconButton(
         splashColor: ThemeHelper.blackDial,
         onPressed: () => onTabLeading(),

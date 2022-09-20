@@ -25,5 +25,8 @@ class ThemeHelper {
   static Color colorF8F7FA = const Color(0xffF8F7FA);
   static Color colorB16AF9 = const Color(0xffB16AF9);
   static Color green = const Color(0xff12C002);
+  static Color crimson50 = const Color.fromRGBO(247, 32, 85, 0.5);
+  static Color crimson10 = const Color.fromRGBO(247, 32, 85, 0.1);
+  static Color rgb159 = const Color.fromRGBO(159, 159, 159, 0.25);
 
 }

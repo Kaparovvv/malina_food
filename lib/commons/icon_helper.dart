@@ -21,4 +21,6 @@ class IconHelper {
   static String location = 'assets/icons/location.png';
   static String iconStar = 'assets/icons/star.png';
   static String iconDiscount = 'assets/icons/icon_discount.png';
+  static String shareIcon = 'assets/icons/shareIcon.png';
+  static String infoIcon = 'assets/icons/info_icon.png';
 }

@@ -4,23 +4,29 @@ import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/global_widgets/searchTextField_widget.dart';
+import 'package:malina_app/screens/main_screens/institution_screen/institution_screen.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/containerInstitution_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/section_button_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcategoriesAppBar_widget.dart';
 
 class SubcategoriesScreen extends StatefulWidget {
-  const SubcategoriesScreen({super.key});
+  final String? imageUrl;
+  const SubcategoriesScreen({super.key, this.imageUrl});
 
   @override
   State<SubcategoriesScreen> createState() => _SubcategoriesScreenState();
 }
 
 class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
+  // String imageUrl =
+  //     'https://avatars.mds.yandex.net/i?id=ea1e5c300a5b2113c54e76094922d221-4550834-images-thumbs&n=13';
+  String institutionName = 'Munchen Pub';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SubcategoriesAppBar().appBar(
         'Еда',
+        ThemeHelper.rgb239,
         () => Navigator.pop(context),
         () {
           setState(() {
@@ -74,10 +80,18 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
                         },
                         itemBuilder: (context, index) {
                           return ContainerInstitutionWidget(
-                            imageUrl:
-                                'https://avatars.mds.yandex.net/i?id=ea1e5c300a5b2113c54e76094922d221-4550834-images-thumbs&n=13',
+                            imageUrl: widget.imageUrl!,
                             nameInstitution: 'Мюнхен Паб',
-                            onTap: () {},
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InstitutionScreen(
+                                  imageUrl: widget.imageUrl!,
+                                  institutionName: institutionName,
+                                  typeInstitution: 'Bar',
+                                ),
+                              ),
+                            ),
                           );
                         },
                       ),
