@@ -13,7 +13,7 @@ class ContainerInstitutionWidget extends StatelessWidget {
   final Function() onTap;
   const ContainerInstitutionWidget({
     Key? key,
-    this.imageUrl,
+    required this.imageUrl,
     required this.nameInstitution,
     required this.onTap,
   }) : super(key: key);
@@ -45,7 +45,7 @@ class ContainerInstitutionWidget extends StatelessWidget {
               CustomCachedNetworkImage(
                 width: 1.sh,
                 height: 114.w,
-                imageUrl: imageUrl,
+                imageUrl: imageUrl!,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(10.r),
                 ),
@@ -137,11 +137,11 @@ class ContainerInstitutionWidget extends StatelessWidget {
                             () {},
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

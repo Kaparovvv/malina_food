@@ -5,4 +5,6 @@ class WidgetState {
   static bool isBacket = false;
   static bool isProfile = false;
   static bool isNotify = false;
+  static bool isActive = true;
+  static bool isNotActive = false;
 }

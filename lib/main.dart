@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:malina_app/screens/main_screens/subcategories_screen.dart/subcategories_screen.dart';
 import 'package:malina_app/screens/splash_screen/splash_screen.dart';
 
 void main() {
