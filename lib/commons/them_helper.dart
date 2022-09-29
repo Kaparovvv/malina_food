@@ -16,6 +16,8 @@ class ThemeHelper {
   static Color rgb238 = const Color(0xffEEEEEE);
   static Color backBlur = const Color(0xff86B1E3);
   static Color black = const Color(0xff000000);
+  static Color black25 = const Color.fromRGBO(0, 0, 0, 0.25);
+  static Color black70 = const Color.fromRGBO(0, 0, 0, 0.7);
   static Color c1C1C1C = const Color(0xff1C1C1C);
   static Color shadowBox1 = const Color.fromRGBO(0, 0, 0, 0.05);
   static Color dividerColor = const Color(0xffECECEF);
@@ -28,5 +30,7 @@ class ThemeHelper {
   static Color crimson50 = const Color.fromRGBO(247, 32, 85, 0.5);
   static Color crimson10 = const Color.fromRGBO(247, 32, 85, 0.1);
   static Color rgb159 = const Color.fromRGBO(159, 159, 159, 0.25);
+  static Color green20 = const Color.fromRGBO(12, 140, 0, 0.2);
+  static Color rgb135 = const Color.fromRGBO(135, 135, 135, 0.15);
 
 }

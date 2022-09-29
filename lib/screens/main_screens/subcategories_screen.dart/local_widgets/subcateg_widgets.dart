@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/global_widgets/widgets_helpers.dart';
 
 class SubcategoriesWidgets {
   Widget boxIconText(String text, Widget iconWidget, Function() onPressed) {

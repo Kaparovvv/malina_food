@@ -6,7 +6,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class SignUpWidgets {
   final MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
     mask: '+996 (###) ##-##-##',
-    filter: {"#": RegExp(r'[0-9]')},
+    filter: {"#": RegExp(r'[0-9]', dotAll: true)},
     type: MaskAutoCompletionType.eager,
   );
 

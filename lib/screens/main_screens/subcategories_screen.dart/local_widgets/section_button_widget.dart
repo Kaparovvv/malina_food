@@ -17,6 +17,7 @@ class SectionButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      borderRadius: BorderRadius.circular(5.r),
       child: InkWell(
         onTap: () => onPressed(),
         borderRadius: BorderRadius.circular(5.r),

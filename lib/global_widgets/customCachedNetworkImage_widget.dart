@@ -21,7 +21,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: imageUrl!,
+      imageUrl: imageUrl ?? 'https://avatars.mds.yandex.net/i?id=b6b0de530521e05e66a74e853aed96c6-5869993-images-thumbs&n=13',
       imageBuilder: (context, imageProvider) => Container(
         width: width,
         height: height,

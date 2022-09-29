@@ -14,10 +14,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       if (event is GetCategoriesEvent) {
         emit(LoadingCategoriesState());
         try {
-          CategoriesModel categoriesModel =
+          List<CategoriesModel> categoriesModelList =
               await CategoriesRepository().getCategories();
           emit(
-            LoadedCategoriesState(categoriesModelList: categoriesModel),
+            LoadedCategoriesState(categoriesModelList: categoriesModelList),
           );
         } catch (e) {
           print('user bloc error ======= $e');
@@ -31,99 +31,3 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
   }
 }
-
-
-/*
-List<CategoriesModel> categoriesList = [
-            CategoriesModel(
-              categoriesName: 'Malina food',
-              imageUrl: ImageHelper.malinaFood,
-              isAvailable: true,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: true,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Malina food',
-              imageUrl: ImageHelper.malinaFood,
-              isAvailable: true,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: true,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-            CategoriesModel(
-              categoriesName: 'Еда',
-              imageUrl: ImageHelper.food,
-              isAvailable: false,
-            ),
-          ];
- */

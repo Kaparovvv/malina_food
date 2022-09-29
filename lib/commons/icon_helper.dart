@@ -23,4 +23,16 @@ class IconHelper {
   static String iconDiscount = 'assets/icons/icon_discount.png';
   static String shareIcon = 'assets/icons/shareIcon.png';
   static String infoIcon = 'assets/icons/info_icon.png';
+  static String flashIcon = 'assets/icons/flashIcon.png';
+  static String gallery = 'assets/icons/gallery.png';
+  static String cameraShare = 'assets/icons/cameraShare.png';
+  static String callIcon = 'assets/icons/call_icon.png';
+  static String locationStore = 'assets/icons/location_institution.png';
+  static String timeIcon = 'assets/icons/time_icon.png';
+  static String telegram = 'assets/icons/telegram.png';
+  static String instagram = 'assets/icons/instagram.png';
+  static String whatsapp = 'assets/icons/whatsapp.png';
+  static String starBorder = 'assets/icons/star_border.png';
+
+
 }

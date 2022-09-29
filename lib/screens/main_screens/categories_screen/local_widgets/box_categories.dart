@@ -8,26 +8,33 @@ import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/
 class BoxCategories extends StatelessWidget {
   final String? categoriesName;
   final String? imageUrl;
-  final bool isAvailable;
+  final int? available;
   final Function() onTab;
 
   const BoxCategories({
     Key? key,
     required this.categoriesName,
     required this.imageUrl,
-    this.isAvailable = false,
+    this.available = 0,
     required this.onTab(),
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => isAvailable
+      onTap: () => available == 1
           ? onTab()
           : showDialog(
               context: context,
               builder: (BuildContext context) {
-                return const ShowDialogWidget();
+                return ShowDialogWidget(
+                  contentText: 'Скоро будет доступно',
+                  buttonText: 'Хорошо',
+                  buttonOnPressed: () => Navigator.pop(context),
+                  iconOnPressed: () => Navigator.pop(context),
+                  contentPadding: EdgeInsets.only(top: 16.h, bottom: 15.h),
+                  buttonPadding: EdgeInsets.only(bottom: 40.h),
+                );
               },
             ),
       child: Stack(
@@ -62,7 +69,7 @@ class BoxCategories extends StatelessWidget {
           //     ),
           //   ),
 
-          isAvailable
+          available == 1
               ? const SizedBox()
               : Container(
                   width: 94.w,

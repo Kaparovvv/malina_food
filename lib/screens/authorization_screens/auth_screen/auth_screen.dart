@@ -44,7 +44,7 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignUpScreen(),
+                      builder: (context) => const SignUpScreen(),
                     ),
                   ),
                 ),

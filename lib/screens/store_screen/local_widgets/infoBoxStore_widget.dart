@@ -4,16 +4,17 @@ import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/widgets_helpers.dart';
-import 'package:malina_app/screens/main_screens/institution_screen/local_widgets/iconBoxButton_widget.dart';
+import 'package:malina_app/screens/store_screen/local_widgets/iconBoxButton_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcateg_widgets.dart';
 
-class InfoBoxInstitutionWidget extends StatelessWidget {
-  final String? institutionName;
-  final String? typeInstitution;
-  InfoBoxInstitutionWidget({
+// ignore: must_be_immutable
+class InfoBoxStoreWidget extends StatelessWidget {
+  final String? storeName;
+  final String? typeStore;
+  InfoBoxStoreWidget({
     Key? key,
-    required this.institutionName,
-    required this.typeInstitution,
+    required this.storeName,
+    required this.typeStore,
   }) : super(key: key);
 
   @override
@@ -22,16 +23,17 @@ class InfoBoxInstitutionWidget extends StatelessWidget {
       width: 330.w,
       height: 110.h,
       decoration: BoxDecoration(
-          color: ThemeHelper.white,
-          borderRadius: BorderRadius.circular(10.r),
-          boxShadow: [
-            BoxShadow(
-              color: ThemeHelper.rgb159,
-              offset: const Offset(0, 4),
-              blurRadius: 15.r,
-              spreadRadius: 0,
-            )
-          ]),
+        color: ThemeHelper.white,
+        borderRadius: BorderRadius.circular(10.r),
+        boxShadow: [
+          BoxShadow(
+            color: ThemeHelper.rgb159,
+            offset: const Offset(0, 4),
+            blurRadius: 15.r,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
       child: Padding(
         padding: EdgeInsets.only(
           left: 15.w,
@@ -52,7 +54,7 @@ class InfoBoxInstitutionWidget extends StatelessWidget {
                       width: 200.w,
                       height: 21.h,
                       child: Text(
-                        institutionName!,
+                        storeName!,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyleHelper.f18w600.copyWith(
                           color: ThemeHelper.blackDial,
@@ -64,7 +66,7 @@ class InfoBoxInstitutionWidget extends StatelessWidget {
                       width: 150.w,
                       height: 17.h,
                       child: Text(
-                        typeInstitution!,
+                        typeStore!,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyleHelper.f14w400.copyWith(
                           color: ThemeHelper.greyDial,
