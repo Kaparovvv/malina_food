@@ -5,7 +5,21 @@ import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/buttonCrimson_widget.dart';
 
 class ShowDialogWidget extends StatelessWidget {
-  const ShowDialogWidget({super.key});
+  final Function() buttonOnPressed;
+  final Function() iconOnPressed;
+
+  final String contentText;
+  final String buttonText;
+  final EdgeInsets contentPadding;
+  final EdgeInsets buttonPadding;
+  const ShowDialogWidget({
+    super.key,
+    required this.buttonOnPressed,
+    required this.contentText,
+    required this.buttonText,
+    required this.contentPadding,
+    required this.buttonPadding, required this.iconOnPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +27,15 @@ class ShowDialogWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
       ),
-      contentPadding: EdgeInsets.only(top: 16.h, bottom: 15.h),
+      contentPadding: contentPadding,
       content: Text(
-        'Скоро будет доступно',
+        contentText,
         textAlign: TextAlign.center,
         style: TextStyleHelper.f20w500.copyWith(color: ThemeHelper.blackDial),
       ),
       iconPadding: EdgeInsets.only(left: 250.w, right: 18.w, top: 20.h),
       icon: IconButton(
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => iconOnPressed(),
         icon: Icon(
           Icons.close_outlined,
           color: ThemeHelper.greyDial,
@@ -30,13 +44,14 @@ class ShowDialogWidget extends StatelessWidget {
       actionsAlignment: MainAxisAlignment.center,
       actions: <Widget>[
         Padding(
-          padding: EdgeInsets.only(bottom: 40.h),
+          padding: buttonPadding,
           child: ButtonCrimsonWidget(
-            txtButton: 'Хорошо',
+            txtButton: buttonText,
             width: 198,
             height: 45,
-            onPressed: () => Navigator.pop(context),
-            textStyle: TextStyleHelper.f14w500.copyWith(color: ThemeHelper.white),
+            onPressed: () => buttonOnPressed(),
+            textStyle:
+                TextStyleHelper.f14w500.copyWith(color: ThemeHelper.white),
           ),
         ),
       ],

@@ -7,45 +7,46 @@ import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 import 'package:malina_app/global_widgets/widgets_helpers.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcateg_widgets.dart';
 
-class ContainerInstitutionWidget extends StatelessWidget {
+class ContainerStoreWidget extends StatelessWidget {
   final String? imageUrl;
-  final String nameInstitution;
+  final String nameStore;
   final Function() onTap;
-  const ContainerInstitutionWidget({
+  const ContainerStoreWidget({
     Key? key,
     required this.imageUrl,
-    required this.nameInstitution,
+    required this.nameStore,
     required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
+      borderRadius: BorderRadius.circular(10.r),
       child: InkWell(
         onTap: () => onTap(),
         splashColor: ThemeHelper.crimson,
         borderRadius: BorderRadius.circular(10.r),
-        child: Ink(
+        child: Container(
           width: 250.w,
           height: 204.h,
           decoration: BoxDecoration(
             color: ThemeHelper.white,
             borderRadius: BorderRadius.circular(10.r),
-            boxShadow: [
-              BoxShadow(
-                color: ThemeHelper.color7a7a7a,
-                offset: const Offset(0, 2),
-                blurRadius: 15.r,
-                spreadRadius: 0,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: ThemeHelper.color7a7a7a,
+            //     offset: const Offset(0, 2),
+            //     blurRadius: 15.r,
+            //     spreadRadius: 0,
+            //   ),
+            // ],
           ),
           child: Column(
             children: [
               CustomCachedNetworkImage(
                 width: 1.sh,
                 height: 114.w,
-                imageUrl: imageUrl!,
+                imageUrl: imageUrl,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(10.r),
                 ),
@@ -73,7 +74,7 @@ class ContainerInstitutionWidget extends StatelessWidget {
                             width: 170.w,
                             height: 21.h,
                             child: Text(
-                              nameInstitution,
+                              nameStore,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyleHelper.f18w600.copyWith(
                                 color: ThemeHelper.blackDial,

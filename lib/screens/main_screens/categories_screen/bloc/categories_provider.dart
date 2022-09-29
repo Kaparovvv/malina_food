@@ -6,17 +6,15 @@ import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/models/categories_model.dart';
 
 class CategoriesProvider {
-  Future<CategoriesModel> getCategories() async {
+  Future<List<CategoriesModel>> getCategories() async {
     try {
       ApiRequester requester = ApiRequester();
-      Response response = await requester.toGet('myapps/venv/api/user/store/');
+      Response response = await requester.toGet('/user/category/');
       log("${response.statusCode}");
 
       if (response.statusCode == 200) {
-        log(response.statusCode.toString());
-        CategoriesModel categoriesModel =
-            CategoriesModel.fromJson(response.data);
-        return categoriesModel;
+        List<CategoriesModel> categoriesModelList = response.data.map<CategoriesModel>((el) => CategoriesModel.fromJson(el)).toList();
+        return categoriesModelList;
       } else {
         throw CatchException.convertException(response);
       }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/cart_screen/cart_screen.dart';
+import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
+import 'package:malina_app/screens/bottomNavigationBar_widget/main_screen_bloc/bloc/main_screen_bloc.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
-import 'package:malina_app/screens/feed_screen/feed_screen.dart';
-import 'package:malina_app/screens/main_screens/categories_screen/categories_screen.dart';
-import 'package:malina_app/screens/profile_screen/profile_screen.dart';
-import 'package:malina_app/screens/qr_code_screen/qr_code_screen.dart';
+import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/qr_code_scanner_screen.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
+  final bool isLoginUser;
+  const BottomNavigationBarWidget({super.key, this.isLoginUser = false});
 
   @override
   State<BottomNavigationBarWidget> createState() =>
@@ -20,21 +20,30 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int currentIndex = 0;
+  late Widget screenName;
+  late MainScreenBloc _mainScreenBloc;
 
-  final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
-    // const AuthScreen(),
-    const FeedScreen(),
-    const QrCodeScreen(),
-    const CartScreen(),
-    const ProfileScreen(),
-  ];
+  @override
+  void initState() {
+    _mainScreenBloc = MainScreenBloc();
+    _mainScreenBloc.add(HomeScreenEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _widgetOptions[WidgetState.currentIndex],
-      // body: const AuthScreen(),
+      body: widget.isLoginUser
+          ? BlocBuilder<MainScreenBloc, MainScreenState>(
+              bloc: _mainScreenBloc,
+              builder: (context, state) {
+                if (state is ScreenState) {
+                  return state.screenName;
+                }
+                return const SizedBox();
+              },
+            )
+          : const AuthScreen(),
       bottomNavigationBar: Container(
         width: 1.sw,
         height: 56.h,
@@ -57,12 +66,12 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               iconName: IconHelper.feedIcon,
               labelText: 'Лента',
               onTap: () {
+                _mainScreenBloc.add(FeedScreenEvent());
                 setState(() {
                   WidgetState.currentIndex = 1;
                   WidgetState.isFeed = !WidgetState.isFeed;
                   WidgetState.isProfile = false;
                   WidgetState.isBacket = false;
-                  WidgetState.isQrCode = false;
                 });
               },
             ),
@@ -71,9 +80,13 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               iconName: IconHelper.qrCodeIcon,
               labelText: 'QR-code',
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const QrCodeScannerScreen(),
+                  ),
+                );
                 setState(() {
-                  WidgetState.currentIndex = 2;
-                  WidgetState.isQrCode = !WidgetState.isQrCode;
                   WidgetState.isFeed = false;
                   WidgetState.isProfile = false;
                   WidgetState.isBacket = false;
@@ -83,10 +96,11 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             Material(
               child: InkWell(
                 onTap: () {
+                  _mainScreenBloc.add(HomeScreenEvent());
                   setState(() {
+                    // WidgetState().isAuthScreen = false;
                     WidgetState.isBacket = false;
                     WidgetState.isProfile = false;
-                    WidgetState.isQrCode = false;
                     WidgetState.isFeed = false;
                   });
                   WidgetState.currentIndex = 0;
@@ -114,12 +128,13 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               iconName: IconHelper.cartIcon,
               labelText: 'Корзина',
               onTap: () {
+                _mainScreenBloc.add(CartScreenEvent());
+
                 setState(() {
-                  WidgetState.currentIndex = 3;
+                  WidgetState.currentIndex = 2;
                   WidgetState.isBacket = !WidgetState.isBacket;
                   WidgetState.isFeed = false;
                   WidgetState.isProfile = false;
-                  WidgetState.isQrCode = false;
                 });
               },
             ),
@@ -128,12 +143,13 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               iconName: IconHelper.profileIcon,
               labelText: 'Профиль',
               onTap: () {
+                _mainScreenBloc.add(ProfileScreenEvent());
+
                 setState(() {
-                  WidgetState.currentIndex = 4;
+                  WidgetState.currentIndex = 3;
                   WidgetState.isProfile = !WidgetState.isProfile;
                   WidgetState.isFeed = false;
                   WidgetState.isBacket = false;
-                  WidgetState.isQrCode = false;
                 });
               },
             ),

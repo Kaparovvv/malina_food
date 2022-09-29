@@ -4,23 +4,24 @@ import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/global_widgets/searchTextField_widget.dart';
-import 'package:malina_app/screens/main_screens/institution_screen/institution_screen.dart';
-import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/containerInstitution_widget.dart';
+import 'package:malina_app/screens/store_screen/store_screen.dart';
+import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/containerStore_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/section_button_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcategoriesAppBar_widget.dart';
 
 class SubcategoriesScreen extends StatefulWidget {
   final String? imageUrl;
-  const SubcategoriesScreen({super.key, this.imageUrl});
+  const SubcategoriesScreen({
+    super.key,
+    this.imageUrl,
+  });
 
   @override
   State<SubcategoriesScreen> createState() => _SubcategoriesScreenState();
 }
 
 class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
-  // String imageUrl =
-  //     'https://avatars.mds.yandex.net/i?id=ea1e5c300a5b2113c54e76094922d221-4550834-images-thumbs&n=13';
-  String institutionName = 'Munchen Pub';
+  String StoreName = 'Munchen Pub';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +57,7 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
                       width: 90.w,
                       height: 495.h,
                       child: ListView.separated(
+                        physics: const BouncingScrollPhysics(),
                         itemCount: 20,
                         itemBuilder: (context, index) {
                           return SectionButtonWidget(
@@ -74,22 +76,19 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
                       width: 245.w,
                       height: 495.h,
                       child: ListView.separated(
+                        physics: const BouncingScrollPhysics(),
                         itemCount: 20,
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox(height: 5.h);
                         },
                         itemBuilder: (context, index) {
-                          return ContainerInstitutionWidget(
-                            imageUrl: widget.imageUrl!,
-                            nameInstitution: 'Мюнхен Паб',
+                          return ContainerStoreWidget(
+                            imageUrl: widget.imageUrl,
+                            nameStore: 'Мюнхен Паб',
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InstitutionScreen(
-                                  imageUrl: widget.imageUrl!,
-                                  institutionName: institutionName,
-                                  typeInstitution: 'Bar',
-                                ),
+                                builder: (context) => StoreScreen(),
                               ),
                             ),
                           );

@@ -97,8 +97,14 @@ class TextStyleHelper {
   );
 
   static TextStyle f16w700 = TextStyle(
-    fontSize: 17.sp,
+    fontSize: 16.sp,
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle f16w400 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w400,
   );
 }

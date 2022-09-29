@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/global_widgets/circle_cached_network_image.dart';
 import 'package:malina_app/global_widgets/widgets_helpers.dart';
 
 class UserBoxWidget extends StatelessWidget {
@@ -48,10 +49,11 @@ class UserBoxWidget extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(1.0.sm),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(imageUrl),
-                      ),
-                      // CircleCachedNetworkImageWidget(imageUrl: imageUrl, width: 38, height: 38)
+                      child: 
+                      // CircleAvatar(
+                      //   backgroundImage: AssetImage(imageUrl),
+                      // ),
+                      CircleCachedNetworkImageWidget(imageUrl: imageUrl, width: 38, height: 38)
                     ),
                   ),
                   SizedBox(width: 10.w),

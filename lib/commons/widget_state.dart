@@ -7,4 +7,7 @@ class WidgetState {
   static bool isNotify = false;
   static bool isActive = true;
   static bool isNotActive = false;
+  final bool isAuthScreen = true;
+  static bool isFavourites = false;
+  static bool isDial = false;
 }
