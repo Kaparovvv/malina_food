@@ -39,32 +39,53 @@ class _ExampleScreenState extends State<ExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: SafeArea(
+        child: IndexedStack(
+          index: _selectedIndex,
+          children: const [
+            NavigatorPage(
+              child: Text('Home'),
+            ),
+            NavigatorPage(
+              child: Text('Business'),
+            ),
+            NavigatorPage(
+              child: Text('Technology'),
+            ),
+            NavigatorPage(
+              child: Text('Education'),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: itemIcon(true, IconHelper.cartIcon, 'BAsket'),
-            label: '',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: itemIcon(true, IconHelper.cartIcon, 'BAsket'),
-            label: '',
+            icon: Icon(Icons.business),
+            label: 'Business',
           ),
           BottomNavigationBarItem(
-            icon: itemIcon(true, IconHelper.cartIcon, 'BAsket'),
-            label: '',
+            icon: Icon(Icons.computer),
+            label: 'Technology',
           ),
           BottomNavigationBarItem(
-            icon: itemIcon(true, IconHelper.cartIcon, 'BAsket'),
-            label: '',
+            icon: Icon(Icons.book),
+            label: 'Education',
           ),
         ],
         currentIndex: _selectedIndex,
-        type: BottomNavigationBarType.fixed,
-        // selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+        onTap: (int index) {
+          setState(
+            () {
+              _selectedIndex = index;
+            },
+          );
+        },
       ),
     );
   }
@@ -91,6 +112,102 @@ class _ExampleScreenState extends State<ExampleScreen> {
                 : TextStyleHelper.unseletedLabel,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class NavigatorPage extends StatefulWidget {
+  final Widget child;
+  const NavigatorPage({super.key, required this.child});
+
+  @override
+  State<NavigatorPage> createState() => _NavigatorPageState();
+}
+
+class _NavigatorPageState extends State<NavigatorPage> {
+  late TextEditingController _textEditingController;
+  int _currentRoute = 0;
+
+  @override
+  void initState() {
+    _textEditingController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+            settings: settings,
+            builder: (BuildContext context) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: widget.child,
+                  centerTitle: true,
+                ),
+                body: Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10.0,
+                    horizontal: 20.0,
+                  ),
+                  child: ListView(
+                    children: List.generate(
+                      50,
+                      (index) {
+                        return Card(
+                          child: ListTile(
+                            leading: FlutterLogo(),
+                            title: Text('${index + 1} Item'),
+                            enabled: true,
+                            onTap: () {
+                              if (_currentRoute != index) {
+                                _textEditingController =
+                                    TextEditingController();
+                              }
+                              _currentRoute = index;
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                    return DetailRoute(
+                                      textEditingController:
+                                          _textEditingController,
+                                      index: index,
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              );
+            });
+      },
+    );
+  }
+}
+
+class DetailRoute extends StatelessWidget {
+  const DetailRoute({super.key, this.textEditingController, this.index});
+
+  final TextEditingController? textEditingController;
+  final int? index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Route for $index Item'),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        alignment: Alignment.center,
+        child: TextField(controller: textEditingController),
       ),
     );
   }

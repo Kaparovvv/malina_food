@@ -1,11 +1,13 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/helpers/api_requester.dart';
 import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/models/categories_model.dart';
 
 class CategoriesProvider {
+  Box categoriesIdBox = Hive.box('categoriesIdBox');
   Future<List<CategoriesModel>> getCategories() async {
     try {
       ApiRequester requester = ApiRequester();
@@ -13,7 +15,10 @@ class CategoriesProvider {
       log("${response.statusCode}");
 
       if (response.statusCode == 200) {
-        List<CategoriesModel> categoriesModelList = response.data.map<CategoriesModel>((el) => CategoriesModel.fromJson(el)).toList();
+        List<CategoriesModel> categoriesModelList = response.data
+            .map<CategoriesModel>((el) => CategoriesModel.fromJson(el))
+            .toList();
+      
         return categoriesModelList;
       } else {
         throw CatchException.convertException(response);

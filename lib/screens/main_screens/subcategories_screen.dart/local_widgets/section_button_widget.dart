@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/global_widgets/circle_cached_network_image.dart';
+import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 
 class SectionButtonWidget extends StatelessWidget {
   final String? iconUrl;
@@ -34,31 +36,10 @@ class SectionButtonWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 45.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      colors: [
-                        ThemeHelper.white,
-                        const Color(0xffFF7395),
-                        const Color(0xffFF5780),
-                        const Color(0xffF93B69),
-                        const Color(0xffEA2757),
-                        const Color(0xffC81944),
-                      ],
-                    ),
-                  ),
-                  child: Center(
-                    child: Image.asset(
-                      iconUrl!,
-                      alignment: Alignment.center,
-                      width: 30.w,
-                      height: 30.h,
-                    ),
-                  ),
+                CircleCachedNetworkImageWidget(
+                  imageUrl: iconUrl,
+                  width: 45,
+                  height: 45,
                 ),
                 SizedBox(height: 8.h),
                 Text(

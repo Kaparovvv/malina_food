@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/models/store_data_model.dart';
-import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/store_data_bloc/store_event.dart';
-import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/store_data_bloc/store_repository.dart';
-import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/store_data_bloc/store_state.dart';
+import 'package:malina_app/screens/store_screen/store_data_bloc/store_event.dart';
+import 'package:malina_app/screens/store_screen/store_data_bloc/store_repository.dart';
+import 'package:malina_app/screens/store_screen/store_data_bloc/store_state.dart';
 
 class StoreBloc extends Bloc<StoreEvent, StoreState> {
   StoreBloc() : super(StoreInitial()) {

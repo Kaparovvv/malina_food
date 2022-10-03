@@ -27,12 +27,12 @@ class ScannerProvider {
 
         idBox.put('id', response.data['id']);
         branchBox.put('branch', response.data['branch']);
-        storeIdBox.put('store_id', response.data['store_id']);
+        storeIdBox.put('storeIdCache', response.data['store_id']);
         numberBox.put('number', response.data['number']);
 
         log('Id ======= ${idBox.get('id')}');
         log('Branch ======= ${branchBox.get('branch')}');
-        log('Store_ID ======= ${storeIdBox.get('store_id')}');
+        log('Store_ID ======= ${storeIdBox.get('storeIdCache')}');
         log('Number ======= ${numberBox.get('number')}');
 
         return storeIdModel;

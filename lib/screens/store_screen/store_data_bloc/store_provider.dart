@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/helpers/api_requester.dart';
@@ -11,8 +10,8 @@ class StoreProvider {
   Future<StoreModel> getStoreData() async {
     try {
       ApiRequester requester = ApiRequester();
-      Response response =
-          await requester.toGet('/user/store/${storeIdBox.get('store_id')}/');
+      Response response = await requester
+          .toGet('/user/store/${storeIdBox.get('storeIdCache')}/');
 
       log('Store_Provider ====== ${response.statusCode}');
 

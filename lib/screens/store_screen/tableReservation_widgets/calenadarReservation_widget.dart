@@ -130,6 +130,7 @@ class _CalendarReservationWidgetState extends State<CalendarReservationWidget> {
             },
           ),
         ),
+        SizedBox(height: 35.h),
         CustomYellowWidget(
           title: 'Забронировать',
           onPressed: () {},

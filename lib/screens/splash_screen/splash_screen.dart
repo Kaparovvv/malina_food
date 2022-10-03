@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const BottomNavigationBarWidget(),
+        builder: (context) => BottomNavigationBarWidget(),
       ),
     );
   }
