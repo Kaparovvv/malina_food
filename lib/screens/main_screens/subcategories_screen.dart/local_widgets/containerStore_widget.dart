@@ -46,7 +46,8 @@ class ContainerStoreWidget extends StatelessWidget {
               CustomCachedNetworkImage(
                 width: 1.sh,
                 height: 114.w,
-                imageUrl: imageUrl,
+                imageUrl: imageUrl ?? 'https://avatars.mds.yandex.net/i?id=b6b0de530521e05e66a74e853aed96c6-5869993-images-thumbs&n=13',
+                boxFit: BoxFit.fill,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(10.r),
                 ),

@@ -9,8 +9,8 @@ import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/widgets_helpers.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/bottomNavigationBar_widget.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/show_dialog_widget.dart';
-import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/bloc_storeID/scanner_bloc.dart';
-import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/bloc_storeID/scanner_event.dart';
+import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/store_info_bloc/scanner_bloc.dart';
+import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/store_info_bloc/scanner_event.dart';
 import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/local_widgets/qrScannerOverlay_widget.dart';
 import 'package:malina_app/screens/store_screen/store_screen.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -27,6 +27,7 @@ class _QrCodeScannerScreenState extends State<QrCodeScannerScreen> {
   bool isScanned = false;
 
   late ScannerBloc _scannerBloc;
+
 
   @override
   void initState() {
@@ -53,7 +54,7 @@ class _QrCodeScannerScreenState extends State<QrCodeScannerScreen> {
           IconButton(
             onPressed: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const BottomNavigationBarWidget(),
+                builder: (context) => BottomNavigationBarWidget(),
               ),
             ),
             icon: Icon(
@@ -124,10 +125,11 @@ class _QrCodeScannerScreenState extends State<QrCodeScannerScreen> {
                       });
                     },
                     buttonOnPressed: () {
+                      // _storeIdBloc.add(StoreIdAfterScannedEvent());
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => StoreScreen()
+                          builder: (context) => const StoreScreen(),
                         ),
                       );
                     },

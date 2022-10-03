@@ -9,9 +9,10 @@ import 'package:malina_app/screens/bottomNavigationBar_widget/main_screen_bloc/b
 import 'package:malina_app/screens/bottomNavigationBar_widget/local_widgets/customBarItem_widget.dart';
 import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/qr_code_scanner_screen.dart';
 
+// ignore: must_be_immutable
 class BottomNavigationBarWidget extends StatefulWidget {
-  final bool isLoginUser;
-  const BottomNavigationBarWidget({super.key, this.isLoginUser = false});
+  bool isLoginUser;
+  BottomNavigationBarWidget({super.key, this.isLoginUser = false});
 
   @override
   State<BottomNavigationBarWidget> createState() =>
@@ -68,6 +69,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               onTap: () {
                 _mainScreenBloc.add(FeedScreenEvent());
                 setState(() {
+                  widget.isLoginUser = true;
                   WidgetState.currentIndex = 1;
                   WidgetState.isFeed = !WidgetState.isFeed;
                   WidgetState.isProfile = false;
@@ -87,6 +89,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                   ),
                 );
                 setState(() {
+                  widget.isLoginUser = true;
                   WidgetState.isFeed = false;
                   WidgetState.isProfile = false;
                   WidgetState.isBacket = false;
@@ -98,7 +101,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 onTap: () {
                   _mainScreenBloc.add(HomeScreenEvent());
                   setState(() {
-                    // WidgetState().isAuthScreen = false;
+                    widget.isLoginUser = true;
                     WidgetState.isBacket = false;
                     WidgetState.isProfile = false;
                     WidgetState.isFeed = false;
@@ -131,6 +134,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 _mainScreenBloc.add(CartScreenEvent());
 
                 setState(() {
+                  widget.isLoginUser = true;
                   WidgetState.currentIndex = 2;
                   WidgetState.isBacket = !WidgetState.isBacket;
                   WidgetState.isFeed = false;
@@ -146,6 +150,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 _mainScreenBloc.add(ProfileScreenEvent());
 
                 setState(() {
+                  widget.isLoginUser = true;
                   WidgetState.currentIndex = 3;
                   WidgetState.isProfile = !WidgetState.isProfile;
                   WidgetState.isFeed = false;

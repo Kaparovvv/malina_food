@@ -23,10 +23,10 @@ class ApiRequester {
     );
   }
 
-  Future<Response> toGet(String url, {Map<String, dynamic>? param}) async {
+  Future<Response> toGet(String url, {Map<String, dynamic>? queryParams}) async {
     Dio dio = await initDio();
     try {
-      return dio.get(url, queryParameters: param);
+      return dio.get(url, queryParameters: queryParams);
     } catch (e) {
       log('$e');
       throw CatchException.convertException(e);

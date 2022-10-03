@@ -103,10 +103,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 }
 
                 if (state is LoadedSignInState) {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BottomNavigationBarWidget(isLoginUser:  true,),
+                      builder: (context) => BottomNavigationBarWidget(
+                        isLoginUser: true,
+                      ),
                     ),
                   );
                   Box tokenBox = Hive.box('tokenBox');
@@ -181,9 +183,9 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  @override
-  Future<void> dispose() async {
-    await _otpTextEditController.stopListen();
-    super.dispose();
-  }
+  // @override
+  // Future<void> dispose() async {
+  //   await _otpTextEditController.stopListen();
+  //   super.dispose();
+  // }
 }

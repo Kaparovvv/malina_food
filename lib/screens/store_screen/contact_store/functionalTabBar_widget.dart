@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,7 +27,7 @@ class FunctionalTabBarWidget extends StatelessWidget {
       child: Column(
         children: [
           DefaultTabController(
-            length: 4,
+            length: 2,
             child: Column(
               children: <Widget>[
                 ButtonsTabBar(
@@ -42,19 +40,17 @@ class FunctionalTabBarWidget extends StatelessWidget {
                   borderColor: ThemeHelper.yellow,
                   unselectedBorderColor: ThemeHelper.colorF8F7FA,
                   physics: const BouncingScrollPhysics(),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                  buttonMargin: EdgeInsets.symmetric(horizontal: 30.w),
                   tabs: [
                     Tab(
                       child: SizedBox(
                         height: 27.h,
                         child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.w, vertical: 5.h),
-                            child: Text(
-                              'Наш адрес',
-                              style: TextStyleHelper.f14w400
-                                  .copyWith(color: ThemeHelper.blackDial),
-                            ),
+                          child: Text(
+                            'Наш адрес',
+                            style: TextStyleHelper.f14w400
+                                .copyWith(color: ThemeHelper.blackDial),
                           ),
                         ),
                       ),
@@ -63,50 +59,46 @@ class FunctionalTabBarWidget extends StatelessWidget {
                       child: SizedBox(
                         height: 27.h,
                         child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.w, vertical: 5.h),
-                            child: Text(
-                              'Бронирование стола',
-                              style: TextStyleHelper.f14w400
-                                  .copyWith(color: ThemeHelper.blackDial),
-                            ),
+                          child: Text(
+                            'Бронирование стола',
+                            style: TextStyleHelper.f14w400
+                                .copyWith(color: ThemeHelper.blackDial),
                           ),
                         ),
                       ),
                     ),
-                    Tab(
-                      child: SizedBox(
-                        height: 27.h,
-                        child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.w, vertical: 5.h),
-                            child: Text(
-                              'Маршрут',
-                              style: TextStyleHelper.f14w400
-                                  .copyWith(color: ThemeHelper.blackDial),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Tab(
-                      child: SizedBox(
-                        height: 27.h,
-                        child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.w, vertical: 5.h),
-                            child: Text(
-                              'Вызвать такси',
-                              style: TextStyleHelper.f14w400
-                                  .copyWith(color: ThemeHelper.blackDial),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Tab(
+                    //   child: SizedBox(
+                    //     height: 27.h,
+                    //     child: Center(
+                    //       child: Padding(
+                    //         padding: EdgeInsets.symmetric(
+                    //             horizontal: 10.w, vertical: 5.h),
+                    //         child: Text(
+                    //           'Маршрут',
+                    //           style: TextStyleHelper.f14w400
+                    //               .copyWith(color: ThemeHelper.blackDial),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // Tab(
+                    //   child: SizedBox(
+                    //     height: 27.h,
+                    //     child: Center(
+                    //       child: Padding(
+                    //         padding: EdgeInsets.symmetric(
+                    //             horizontal: 10.w, vertical: 5.h),
+                    //         child: Text(
+                    //           'Вызвать такси',
+                    //           style: TextStyleHelper.f14w400
+                    //               .copyWith(color: ThemeHelper.blackDial),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ],
@@ -117,7 +109,7 @@ class FunctionalTabBarWidget extends StatelessWidget {
             child: TabBarView(
               controller: _tabControllerSecond,
               children: <Widget>[
-                 AddressStoresWidget(infoListOfStore: infoListOfStore),
+                AddressStoresWidget(infoListOfStore: infoListOfStore),
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 11.w,
@@ -140,12 +132,12 @@ class FunctionalTabBarWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Center(
-                  child: Text('Маршрут'),
-                ),
-                const Center(
-                  child: Text('Вызвать такси'),
-                ),
+                // const Center(
+                //   child: Text('Скоро будет доступно'),
+                // ),
+                // const Center(
+                //   child: Text('Скоро будет доступно'),
+                // ),
               ],
             ),
           ),

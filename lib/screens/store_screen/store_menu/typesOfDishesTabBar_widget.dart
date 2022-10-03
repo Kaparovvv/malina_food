@@ -108,7 +108,6 @@ class TypesOfDishesTabBarWidget extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(height: 25.h),
           Expanded(
             child: TabBarView(
               controller: _tabControllerDishes,
@@ -117,16 +116,15 @@ class TypesOfDishesTabBarWidget extends StatelessWidget {
                   width: 1.sw,
                   height: 1.sh,
                   child: GridView.builder(
-                    shrinkWrap: true,
-                    padding:
-                        EdgeInsets.only(left: 15.w, right: 15.w, top: 25.h),
+                    shrinkWrap: false,
+                    padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 25.h),
                     physics: const BouncingScrollPhysics(),
-                    itemCount: 20,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                    itemCount: 1,
+                    gridDelegate:  (SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,)
+                      
+                      // crossAxisSpacing: 10,
+                      // mainAxisSpacing: 10,
+                      // mainAxisExtent: 258,
                     ),
                     itemBuilder: (context, index) => const InfoBoxAboutTheDish(
                       imageUrl:
@@ -185,7 +183,7 @@ class _InfoBoxAboutTheDishState extends State<InfoBoxAboutTheDish> {
       height: 258.h,
       margin: EdgeInsets.symmetric(vertical: 10.h),
       decoration: BoxDecoration(
-        color: ThemeHelper.white,
+        color: ThemeHelper.crimson,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [BoxShadowHelper.rgb135],
       ),
@@ -197,6 +195,7 @@ class _InfoBoxAboutTheDishState extends State<InfoBoxAboutTheDish> {
                 imageUrl: widget.imageUrl,
                 width: 1.sw,
                 height: 160.h,
+                boxFit: BoxFit.cover,
                 borderRadius: BorderRadius.circular(20.r),
               ),
               Positioned(

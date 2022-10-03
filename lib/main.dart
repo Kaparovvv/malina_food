@@ -10,9 +10,10 @@ void main() async {
   await Hive.openBox('apiBox');
   await Hive.openBox('idBox');
   await Hive.openBox('branchBox');
-  await Hive.openBox('storeIdBox');
   await Hive.openBox('numberBox');
-
+  await Hive.openBox('categoriesIdBox');
+  await Hive.openBox('storeIdBox');
+  // await Hive.openBox('storeIdNotScanningBox');
   runApp(const MyApp());
 }
 
@@ -24,13 +25,14 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 640),
       builder: (context, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(canvasColor: Colors.white),
-          home: 
-          // const HomeScreen(),
-          const SplashScreen(),
-          ),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(canvasColor: Colors.white),
+        home:
+            // const ExampleScreen(currentIndex: 0)
+            // const HomeScreen(),
+            const SplashScreen(),
+      ),
     );
   }
 }
