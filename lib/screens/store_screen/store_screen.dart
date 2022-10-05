@@ -5,7 +5,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
-import 'package:malina_app/models/store_model_list.dart';
 import 'package:malina_app/screens/store_screen/store_data_bloc/store_bloc.dart';
 import 'package:malina_app/screens/store_screen/store_data_bloc/store_event.dart';
 import 'package:malina_app/screens/store_screen/store_data_bloc/store_state.dart';
@@ -17,12 +16,10 @@ import 'package:malina_app/screens/store_screen/reviews_about_the_store/reviews_
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcategoriesAppBar_widget.dart';
 
 class StoreScreen extends StatefulWidget {
-  // final StoreModelList? storeModelList;
   final bool isScanner;
   const StoreScreen({
     super.key,
     this.isScanner = false,
-    //  this.storeModelList,
   });
 
   @override

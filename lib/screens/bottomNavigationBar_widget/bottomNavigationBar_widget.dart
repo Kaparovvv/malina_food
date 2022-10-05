@@ -20,7 +20,7 @@ class BottomNavigationBarWidget extends StatefulWidget {
 }
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
-  int currentIndex = 0;
+  // int currentIndex = 0;
   late Widget screenName;
   late MainScreenBloc _mainScreenBloc;
 

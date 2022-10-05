@@ -22,7 +22,7 @@ class WidgetsHelpers {
   ImageIcon logoIcon(String imageName) {
     return ImageIcon(
       AssetImage(imageName),
-      size: 24,
+      size: 25,
     );
   }
 

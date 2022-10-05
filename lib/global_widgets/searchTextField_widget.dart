@@ -8,11 +8,17 @@ class SearchTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final double width;
   final Color fillColor;
+  final ValueChanged<String>? onChanged;
+  final Function()? onEditingComplete;
+  final Function(String)?  onFieldSubmited;
   const SearchTextFieldWidget({
     Key? key,
     required this.controller,
     required this.width,
     required this.fillColor,
+    this.onChanged,
+    this.onEditingComplete, 
+    this.onFieldSubmited,
   }) : super(key: key);
 
   @override
@@ -20,7 +26,7 @@ class SearchTextFieldWidget extends StatelessWidget {
     return SizedBox(
       width: width.w,
       height: 35.h,
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
@@ -39,6 +45,9 @@ class SearchTextFieldWidget extends StatelessWidget {
           hintText: 'Поиск',
           hintStyle: TextStyleHelper.hintTextSearch,
         ),
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
+        onFieldSubmitted: onFieldSubmited,
       ),
     );
   }

@@ -17,7 +17,6 @@ class StoreListBloc extends Bloc<StoreListEvent, StoreListState> {
           LoadedStoreListState(storeModelList: storeModelList),
         );
       } catch (e) {
-        print('StoreList bloc error ====== $e');
         emit(
           ErrorStoreListState(
             message: CatchException.convertException(e),

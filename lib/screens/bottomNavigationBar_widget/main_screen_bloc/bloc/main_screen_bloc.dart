@@ -16,7 +16,7 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
       }
 
       if (event is HomeScreenEvent) {
-        emit((ScreenState(screenName: const HomeScreen())));
+        emit((ScreenState(screenName: const CategoriesScreen())));
       }
 
       if (event is CartScreenEvent) {
