@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/circle_cached_network_image.dart';
-import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 
 class SectionButtonWidget extends StatelessWidget {
+  final bool isActive;
   final String? iconUrl;
   final String? sectionName;
   final Function() onPressed;
@@ -14,6 +14,7 @@ class SectionButtonWidget extends StatelessWidget {
     this.iconUrl,
     this.sectionName,
     required this.onPressed,
+    this.isActive = false,
   }) : super(key: key);
 
   @override
@@ -28,7 +29,7 @@ class SectionButtonWidget extends StatelessWidget {
           width: 85.w,
           height: 85.h,
           decoration: BoxDecoration(
-            color: ThemeHelper.white,
+            color: isActive ? ThemeHelper.yellow : ThemeHelper.white,
             borderRadius: BorderRadius.circular(5.r),
           ),
           child: Padding(

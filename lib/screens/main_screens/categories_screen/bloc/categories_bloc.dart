@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/models/categories_model.dart';
@@ -20,7 +18,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             LoadedCategoriesState(categoriesModelList: categoriesModelList),
           );
         } catch (e) {
-          print('user bloc error ======= $e');
           emit(
             ErrorCategoriesState(
               message: CatchException.convertException(e),

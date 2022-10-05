@@ -3,34 +3,31 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/global_widgets/widgets_helpers.dart';
 import 'package:malina_app/screens/cart_screen/cart_screen.dart';
 import 'package:malina_app/screens/feed_screen/feed_screen.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/categories_screen.dart';
 import 'package:malina_app/screens/profile_screen/profile_screen.dart';
+import 'package:malina_app/screens/qr_code_screens/qr_code_scanner_screen/qr_code_scanner_screen.dart';
 
-class ExampleScreen extends StatefulWidget {
+class NavBarWidget extends StatefulWidget {
   final int currentIndex;
-  const ExampleScreen({super.key, required this.currentIndex});
+  const NavBarWidget({super.key, required this.currentIndex});
 
   @override
-  State<ExampleScreen> createState() => _ExampleScreenState();
+  State<NavBarWidget> createState() => _NavBarWidgetState();
 }
 
-class _ExampleScreenState extends State<ExampleScreen> {
-  int _selectedIndex = 0;
-  final List<Widget> _widgetOptions = <Widget>[
-    const FeedScreen(),
-    const HomeScreen(),
-    const CartScreen(),
-    const ProfileScreen(),
-  ];
+class _NavBarWidgetState extends State<NavBarWidget> {
+  late int _selectedIndex;
+
   @override
   void initState() {
     _selectedIndex = widget.currentIndex;
     super.initState();
   }
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -43,75 +40,83 @@ class _ExampleScreenState extends State<ExampleScreen> {
         child: IndexedStack(
           index: _selectedIndex,
           children: const [
-            NavigatorPage(
-              child: Text('Home'),
-            ),
-            NavigatorPage(
-              child: Text('Business'),
-            ),
-            NavigatorPage(
-              child: Text('Technology'),
-            ),
-            NavigatorPage(
-              child: Text('Education'),
-            ),
+            FeedScreen(),
+            QrCodeScannerScreen(),
+            CategoriesScreen(),
+            CartScreen(),
+            ProfileScreen(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.computer),
-            label: 'Technology',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Education',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: (int index) {
-          setState(
-            () {
-              _selectedIndex = index;
-            },
-          );
-        },
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: ThemeHelper.navBarShadow,
+            blurRadius: 30.r,
+            offset: const Offset(15, 0),
+          )
+        ]),
+        child: BottomNavigationBar(
+          backgroundColor: ThemeHelper.white,
+          selectedItemColor: ThemeHelper.crimson,
+          unselectedIconTheme: IconThemeData(color: ThemeHelper.color7a7a7a),
+          selectedLabelStyle: TextStyleHelper.seletedLabel,
+          unselectedLabelStyle: TextStyleHelper.unseletedLabel,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: WidgetsHelpers().logoIcon(IconHelper.feedIcon),
+              label: 'Лента',
+            ),
+            BottomNavigationBarItem(
+              icon: WidgetsHelpers().logoIcon(IconHelper.qrCodeIcon),
+              label: 'QR-code',
+            ),
+            BottomNavigationBarItem(
+              icon: itemIcon(),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: WidgetsHelpers().logoIcon(IconHelper.cartIcon),
+              label: 'Корзина',
+            ),
+            BottomNavigationBarItem(
+              icon: WidgetsHelpers().logoIcon(IconHelper.profileIcon),
+              label: 'Профиль',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: (int index) {
+            setState(
+              () {
+                _selectedIndex = index;
+              },
+            );
+          },
+        ),
       ),
     );
   }
 
-  Widget itemIcon(bool isState, String iconName, String labelText) {
-    return Material(
-      child: Column(
-        children: [
-          Container(
-            height: 1.5.h,
-            width: 35.w,
-            color: isState ? ThemeHelper.crimson : Colors.transparent,
-          ),
-          SizedBox(height: 8.h),
-          ImageIcon(
-            AssetImage(iconName),
-            color: isState ? ThemeHelper.crimson : ThemeHelper.greyDial,
-          ),
-          SizedBox(height: 3.h),
-          Text(
-            labelText,
-            style: isState
-                ? TextStyleHelper.seletedLabel
-                : TextStyleHelper.unseletedLabel,
+  Widget itemIcon() {
+    return Container(
+      width: 46.w,
+      height: 46.h,
+      decoration: BoxDecoration(
+        color: ThemeHelper.crimson,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: ThemeHelper.rgb170,
+            offset: const Offset(0, 0),
+            blurRadius: 10.r,
           ),
         ],
+      ),
+      child: ImageIcon(
+        AssetImage(IconHelper.mainScreenIcon),
+        size: 25,
+        color: ThemeHelper.white,
       ),
     );
   }
