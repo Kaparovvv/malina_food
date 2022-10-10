@@ -9,6 +9,9 @@ class IconHelper {
   static String notifyTrue = 'assets/icons/notify_true.png';
   static String notifyFalse = 'assets/icons/notify_false.png';
   static String ellipse = 'assets/icons/ellipse.png';
+  static String done = 'assets/icons/done.png';
+  static String doneLine = 'assets/icons/doneLine.png';
+  static String notDone = 'assets/icons/notDone.png';
   static String logoIcon = 'assets/icons/logo_icon.png';
   static String commentIcon = 'assets/icons/comment.png';
   static String deliveryIcon = 'assets/icons/delivery_icon.png';
@@ -33,6 +36,4 @@ class IconHelper {
   static String instagram = 'assets/icons/instagram.png';
   static String whatsapp = 'assets/icons/whatsapp.png';
   static String starBorder = 'assets/icons/star_border.png';
-
-
 }

@@ -15,6 +15,8 @@ class SignUpProvider {
       });
       if (response.statusCode! >= 200 && response.statusCode! < 300) {
         log(response.data.toString());
+      } else if (response.statusCode == 429) {
+        throw CatchException.convertException(response);
       } else {
         throw CatchException.convertException(response);
       }

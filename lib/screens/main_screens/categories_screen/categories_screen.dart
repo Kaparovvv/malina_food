@@ -9,6 +9,7 @@ import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_blocs/search_bloc/search_category/search_bloc.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
 import 'package:malina_app/global_widgets/searchTextField_widget.dart';
+import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/bloc/categories_bloc.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/local_widgets/box_categories.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/subcategories_screen.dart';

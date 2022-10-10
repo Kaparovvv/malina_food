@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/image_helper.dart';
+import 'package:malina_app/examples/offerTheRegister_screen.dart';
+import 'package:malina_app/screens/authorization_screens/auth_screen/auth_screen.dart';
 import 'package:malina_app/screens/bottomNavigationBar_widget/bottomNavigationBar_widget.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => BottomNavigationBarWidget(),
+        builder: (context) => const OfferTheRegisterScreen(),
       ),
     );
   }

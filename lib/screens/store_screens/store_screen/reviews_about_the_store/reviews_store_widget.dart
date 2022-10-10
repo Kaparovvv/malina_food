@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/boxShadow_helper.dart';
 import 'package:malina_app/commons/text_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/store_screen/reviews_about_the_store/reviews_widget_helpers.dart';
+import 'package:malina_app/screens/store_screens/store_screen/reviews_about_the_store/reviews_widget_helpers.dart';
 
 class ReviewsStoreWidget extends StatelessWidget {
   const ReviewsStoreWidget({super.key});

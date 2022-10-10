@@ -107,4 +107,10 @@ class TextStyleHelper {
     fontFamily: "SF Pro Display",
     fontWeight: FontWeight.w400,
   );
+
+  static TextStyle f22w500 = TextStyle(
+    fontSize: 22.sp,
+    fontFamily: "SF Pro Display",
+    fontWeight: FontWeight.w500,
+  );
 }

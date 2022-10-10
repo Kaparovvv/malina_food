@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/screens/authorization_screens/sign_in_screen/bloc/sign_in_repository.dart';

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/store_screen/tableReservation_widgets/buttonOfTheWeek_widget.dart';
-import 'package:malina_app/screens/store_screen/tableReservation_widgets/customYellow_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/tableReservation_widgets/buttonOfTheWeek_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/tableReservation_widgets/customYellow_widget.dart';
 
 class CalendarReservationWidget extends StatefulWidget {
   const CalendarReservationWidget({super.key});
@@ -30,8 +30,7 @@ class _CalendarReservationWidgetState extends State<CalendarReservationWidget> {
       children: [
         Text(
           'День',
-          style:
-              TextStyleHelper.f16w500.copyWith(color: ThemeHelper.blackDial),
+          style: TextStyleHelper.f16w500.copyWith(color: ThemeHelper.blackDial),
         ),
         SizedBox(height: 18.h),
         SizedBox(
@@ -49,10 +48,7 @@ class _CalendarReservationWidgetState extends State<CalendarReservationWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      DateTime.now()
-                          .add(Duration(days: index))
-                          .day
-                          .toString(),
+                      DateTime.now().add(Duration(days: index)).day.toString(),
                       style: TextStyleHelper.f14w400.copyWith(
                         color: currentDateSelectedIndex == index
                             ? ThemeHelper.white
@@ -91,8 +87,7 @@ class _CalendarReservationWidgetState extends State<CalendarReservationWidget> {
         SizedBox(height: 31.h),
         Text(
           'Время',
-          style:
-              TextStyleHelper.f16w500.copyWith(color: ThemeHelper.blackDial),
+          style: TextStyleHelper.f16w500.copyWith(color: ThemeHelper.blackDial),
         ),
         SizedBox(height: 18.h),
         SizedBox(

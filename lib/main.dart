@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:malina_app/screens/nav_bar_widget.dart';
+import 'package:malina_app/screens/splash_screen/splash_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -14,6 +14,7 @@ void main() async {
   await Hive.openBox('categoriesIdBox');
   await Hive.openBox('storeIdBox');
   await Hive.openBox('subcategoryID');
+  await Hive.openBox('deviceIdBox');
   runApp(const MyApp());
 }
 
@@ -25,13 +26,14 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 640),
       builder: (context, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(canvasColor: Colors.white),
-          home: const NavBarWidget(currentIndex: 2)
-          // const HomeScreen(),
-          // const SplashScreen(),
-          ),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(canvasColor: Colors.white),
+        home:
+            // const NavBarWidget(currentIndex: 2)
+            // const HomeScreen(),
+            const SplashScreen(),
+      ),
     );
   }
 }

@@ -8,14 +8,18 @@ class BoxShadowHelper {
     color: ThemeHelper.rgb135,
     offset: const Offset(0, 2),
     blurRadius: 20.r,
-    spreadRadius: 0,
+  );
+
+  static BoxShadow white50 = BoxShadow(
+    color: ThemeHelper.shadowBox1,
+    offset: const Offset(0, 2),
+    blurRadius: 20.r,
   );
 
   static BoxShadow blurRadius15 = BoxShadow(
     color: ThemeHelper.rgb135,
     offset: const Offset(0, 2),
     blurRadius: 15.r,
-    spreadRadius: 0,
   );
 
   static BoxShadow mainIconShadow = BoxShadow(

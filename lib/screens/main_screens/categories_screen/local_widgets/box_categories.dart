@@ -39,36 +39,28 @@ class BoxCategories extends StatelessWidget {
             ),
       child: Stack(
         children: [
-          Stack(children: [
-            CustomCachedNetworkImage(
-              imageUrl: imageUrl,
-              width: 94,
-              height: 94,
-              borderRadius: BorderRadius.circular(5.r),
-            ),
-            Positioned(
-              left: 9.w,
-              top: 9.h,
-              right: 9.w,
-              child: Text(
-                categoriesName!,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style:
-                    TextStyleHelper.f12w500.copyWith(color: ThemeHelper.white),
+          Stack(
+            children: [
+              CustomCachedNetworkImage(
+                imageUrl: imageUrl,
+                width: 94,
+                height: 94,
+                borderRadius: BorderRadius.circular(5.r),
               ),
-            ),
-          ]),
-          // Container(
-          //   width: 94.w,
-          //   height: 94.h,
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(5.r),
-          //     image: DecorationImage(
-          //       image: AssetImage(imageUrl ?? ''),
-          //     ),
-          //   ),
-
+              Positioned(
+                left: 9.w,
+                top: 9.h,
+                right: 9.w,
+                child: Text(
+                  categoriesName ?? 'unknown',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyleHelper.f12w500
+                      .copyWith(color: ThemeHelper.white),
+                ),
+              ),
+            ],
+          ),
           available == 1
               ? const SizedBox()
               : Container(
