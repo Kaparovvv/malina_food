@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/models/categories_model.dart';
@@ -8,8 +10,8 @@ part 'categories_state.dart';
 
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   CategoriesBloc() : super(CategoriesInitial()) {
-    on<CategoriesEvent>((event, emit) async {
-      if (event is GetCategoriesEvent) {
+    on<GetCategoriesEvent>(
+      (event, emit) async {
         emit(LoadingCategoriesState());
         try {
           List<CategoriesModel> categoriesModelList =
@@ -24,7 +26,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             ),
           );
         }
-      }
-    });
+      },
+    );
   }
 }
