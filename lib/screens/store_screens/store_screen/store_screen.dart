@@ -5,14 +5,15 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/widget_state.dart';
 import 'package:malina_app/global_widgets/customCachedNetworkImage_widget.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
-import 'package:malina_app/screens/store_screen/store_data_bloc/store_bloc.dart';
-import 'package:malina_app/screens/store_screen/store_data_bloc/store_event.dart';
-import 'package:malina_app/screens/store_screen/store_data_bloc/store_state.dart';
-import 'package:malina_app/screens/store_screen/local_widgets/infoBoxStore_widget.dart';
-import 'package:malina_app/screens/store_screen/local_widgets/mainTabBar_widget.dart';
-import 'package:malina_app/screens/store_screen/contact_store/functionalTabBar_widget.dart';
-import 'package:malina_app/screens/store_screen/store_menu/typesOfDishesTabBar_widget.dart';
-import 'package:malina_app/screens/store_screen/reviews_about_the_store/reviews_store_widget.dart';
+import 'package:malina_app/screens/nav_bar_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_data_bloc/store_bloc.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_data_bloc/store_event.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_data_bloc/store_state.dart';
+import 'package:malina_app/screens/store_screens/store_screen/local_widgets/infoBoxStore_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/local_widgets/mainTabBar_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/contact_store/functionalTabBar_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_menu/typesOfDishesTabBar_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/reviews_about_the_store/reviews_store_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/subcategoriesAppBar_widget.dart';
 
 class StoreScreen extends StatefulWidget {

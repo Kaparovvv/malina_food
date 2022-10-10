@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/global_blocs/search_bloc/search_category/search_bloc.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_widgets/containerStore_widget.dart';
-import 'package:malina_app/screens/store_screen/store_screen.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_screen.dart';
 
 class SearchStoreBlocConsumer extends StatelessWidget {
   const SearchStoreBlocConsumer({

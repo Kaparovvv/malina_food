@@ -32,5 +32,5 @@ class ThemeHelper {
   static Color rgb159 = const Color.fromRGBO(159, 159, 159, 0.25);
   static Color green20 = const Color.fromRGBO(12, 140, 0, 0.2);
   static Color rgb135 = const Color.fromRGBO(135, 135, 135, 0.15);
-
+  static Color color898A8D = const Color(0xff898A8D);
 }

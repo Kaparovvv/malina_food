@@ -7,11 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
+import 'package:malina_app/global_blocs/user_authorized/authorized_bloc.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
 import 'package:malina_app/screens/authorization_screens/sign_in_screen/bloc/sign_in_bloc.dart';
 import 'package:malina_app/screens/authorization_screens/sign_up_screen/bloc/sign_up_bloc.dart';
 import 'package:malina_app/screens/authorization_screens/sign_up_screen/local_widgets/close_button_widget.dart';
-import 'package:malina_app/screens/bottomNavigationBar_widget/bottomNavigationBar_widget.dart';
+import 'package:malina_app/screens/nav_bar_widget.dart';
 import 'package:otp_autofill/otp_autofill.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -40,30 +41,37 @@ class _SignInScreenState extends State<SignInScreen> {
 
   String currentIndex = '';
 
+  late AuthorizedBloc _authorizedBloc;
+
   @override
   void initState() {
-    super.initState();
+    _authorizedBloc = AuthorizedBloc();
     _signInBloc = SignInBloc();
     _signUpBloc = SignUpBloc();
     _otpInteractor = OTPInteractor();
+    super.initState();
 
     if (Platform.isAndroid) {
       _otpTextEditController = OTPTextEditController(
         codeLength: 6,
         otpInteractor: _otpInteractor,
-      )..startListenUserConsent((code) {
-          final exp = RegExp(r'(\d{6})');
-          return exp.stringMatch(code ?? '') ?? '';
-        });
+      )..startListenUserConsent(
+          (code) {
+            final exp = RegExp(r'(\d{6})');
+            return exp.stringMatch(code ?? '') ?? '';
+          },
+        );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CloseButtonWidget().closeButton(() {
-        Navigator.pop(context);
-      }),
+      appBar: CloseButtonWidget().closeButton(
+        () {
+          Navigator.pop(context);
+        },
+      ),
       key: scaffoldKey,
       body: Center(
         child: Column(
@@ -103,18 +111,21 @@ class _SignInScreenState extends State<SignInScreen> {
                 }
 
                 if (state is LoadedSignInState) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BottomNavigationBarWidget(
-                        isLoginUser: true,
-                      ),
-                    ),
-                  );
                   Box tokenBox = Hive.box('tokenBox');
                   Box refreshTokenBox = Hive.box('refreshTokenBox');
-                  log('Token ======= ${tokenBox.get('token')}');
-                  log('Refresh token  ======= ${refreshTokenBox.get('refreshToken')}');
+
+                  log('3 ======= ${tokenBox.get('token')}');
+                  log('3  ======= ${refreshTokenBox.get('refreshToken')}');
+                  tokenBox.get('token') != null &&
+                          refreshTokenBox.get('refreshToken') != null
+                      ? Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const NavBarWidget(currentIndex: 2),
+                          ),
+                        )
+                      : null;
                 }
               },
               builder: (context, state) {
@@ -152,7 +163,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     onCompleted: (value) {
                       _signInBloc.add(
                         PostSignInEvent(
-                          phone: widget.prefixPhone,
+                          phone: '+996995666104',
                           confirmationCode: _otpTextEditController.text,
                         ),
                       );
@@ -182,10 +193,4 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
-  // @override
-  // Future<void> dispose() async {
-  //   await _otpTextEditController.stopListen();
-  //   super.dispose();
-  // }
 }

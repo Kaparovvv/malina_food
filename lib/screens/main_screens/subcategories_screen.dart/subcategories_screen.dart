@@ -51,77 +51,74 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => StoreListBloc())],
-      child: Scaffold(
-        appBar: SubcategoriesAppBar().appBar(
-          widget.categories ?? 'unknown',
-          ThemeHelper.rgb239,
-          () async {
-            Navigator.pop(context);
-            await Hive.box('subcategoryID').delete('idCache');
-          },
-          () {
-            setState(() {
-              WidgetState.isNotify = !WidgetState.isNotify;
-            });
-          },
-        ),
-        body: Container(
-          width: 1.sw,
-          height: 1.sh,
-          color: ThemeHelper.rgb239,
-          child: Padding(
-            padding: EdgeInsets.only(top: 18.h, left: 7.w, right: 10.w),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SearchTextFieldWidget(
-                    controller: _searchQuery,
-                    fillColor: ThemeHelper.white,
-                    width: 334,
-                    onChanged: (value) {
-                      _valueSearch = value;
-                      setState(() {
-                        _searchBloc.add(
-                          SearchStoreEvent(query: _valueSearch),
-                        );
-                      });
-                      log(_valueSearch.toString());
-                    },
-                    // onFieldSubmited: (value) {
-                    //   _valueSearch = value;
-                    //   setState(() {
-                    //     _searchBloc.add(
-                    //       SearchStoreEvent(query: _valueSearch),
-                    //     );
-                    //   });
-                    // },
-                  ),
-                  SizedBox(height: 25.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 90.w,
-                        height: 495.h,
-                        child: SubcategoryBlocConsumer(
-                            subcategoriesBloc: _subcategoriesBloc,
-                            storeListBloc: _storeListBloc),
-                      ),
-                      SizedBox(width: 8.w),
-                      SizedBox(
-                        width: 245.w,
-                        height: 495.h,
-                        child: _valueSearch.isNotEmpty
-                            ? SearchStoreBlocConsumer(searchBloc: _searchBloc)
-                            : StoreListBlocConsumer(
-                                storeListBloc: _storeListBloc),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+    return Scaffold(
+      appBar: SubcategoriesAppBar().appBar(
+        widget.categories ?? 'unknown',
+        ThemeHelper.rgb239,
+        () async {
+          Navigator.pop(context);
+          await Hive.box('subcategoryID').delete('idCache');
+        },
+        () {
+          setState(() {
+            WidgetState.isNotify = !WidgetState.isNotify;
+          });
+        },
+      ),
+      body: Container(
+        width: 1.sw,
+        height: 1.sh,
+        color: ThemeHelper.rgb239,
+        child: Padding(
+          padding: EdgeInsets.only(top: 18.h, left: 7.w, right: 10.w),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SearchTextFieldWidget(
+                  controller: _searchQuery,
+                  fillColor: ThemeHelper.white,
+                  width: 334,
+                  onChanged: (value) {
+                    _valueSearch = value;
+                    setState(() {
+                      _searchBloc.add(
+                        SearchStoreEvent(query: _valueSearch),
+                      );
+                    });
+                    log(_valueSearch.toString());
+                  },
+                  // onFieldSubmited: (value) {
+                  //   _valueSearch = value;
+                  //   setState(() {
+                  //     _searchBloc.add(
+                  //       SearchStoreEvent(query: _valueSearch),
+                  //     );
+                  //   });
+                  // },
+                ),
+                SizedBox(height: 25.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 90.w,
+                      height: 495.h,
+                      child: SubcategoryBlocConsumer(
+                          subcategoriesBloc: _subcategoriesBloc,
+                          storeListBloc: _storeListBloc),
+                    ),
+                    SizedBox(width: 8.w),
+                    SizedBox(
+                      width: 245.w,
+                      height: 495.h,
+                      child: _valueSearch.isNotEmpty
+                          ? SearchStoreBlocConsumer(searchBloc: _searchBloc)
+                          : StoreListBlocConsumer(
+                              storeListBloc: _storeListBloc),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -129,8 +126,3 @@ class _SubcategoriesScreenState extends State<SubcategoriesScreen> {
     );
   }
 }
-
-
-
-
-

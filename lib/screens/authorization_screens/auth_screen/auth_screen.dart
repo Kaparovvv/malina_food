@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/text_helper.dart';
@@ -15,8 +18,8 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return SingleChildScrollView(
+      child: Column(
         children: [
           Padding(
             padding: EdgeInsets.only(left: 25.w, top: 52.h, right: 25.w),
@@ -41,12 +44,18 @@ class AuthScreen extends StatelessWidget {
                       .copyWith(color: ThemeHelper.white),
                   width: 273,
                   height: 43,
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignUpScreen(),
-                    ),
-                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpScreen(),
+                      ),
+                    );
+                    Box tokenBox = Hive.box('tokenBox');
+                    Box refreshTokenBox = Hive.box('refreshTokenBox');
+                    log('Token ======= ${tokenBox.get('token')}');
+                    log('Refresh token  ======= ${refreshTokenBox.get('refreshToken')}');
+                  },
                 ),
               ],
             ),

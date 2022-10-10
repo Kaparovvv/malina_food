@@ -7,7 +7,7 @@ import 'package:malina_app/screens/main_screens/subcategories_screen.dart/local_
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/store_list_bloc/store_list_bloc.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/store_list_bloc/store_list_event.dart';
 import 'package:malina_app/screens/main_screens/subcategories_screen.dart/store_list_bloc/store_list_state.dart';
-import 'package:malina_app/screens/store_screen/store_screen.dart';
+import 'package:malina_app/screens/store_screens/store_screen/store_screen.dart';
 
 class StoreListBlocConsumer extends StatelessWidget {
   const StoreListBlocConsumer({

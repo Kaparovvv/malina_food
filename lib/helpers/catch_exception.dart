@@ -5,11 +5,9 @@ class CatchException {
   CatchException({this.message});
   static CatchException convertException(dynamic error) {
     if (error is DioError && error.error is CatchException) {
-   
       return error.error;
     }
     if (error is DioError) {
-      
       @override
       String toString() {
         return 'error: $error';
@@ -33,19 +31,22 @@ class CatchException {
       } else if (error.response!.statusCode == 401) {
         print('444444');
         return CatchException(message: error.response!.data["message"]);
+      } else if (error.response!.statusCode == 429) {
+        print('444444');
+        return CatchException(message: error.response!.data["message"]);
       } else {
         print('33333');
         return CatchException(message: 'Произошла системаная ошибка');
       }
     }
     if (error is CatchException) {
-      
       return error;
     } else {
-    
       return CatchException(message: 'Произошла системаная ошибка');
     }
-  }  @override
+  }
+
+  @override
   String toString() {
     return 'message: $message';
   }

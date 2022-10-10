@@ -14,16 +14,18 @@ class ApiRequester {
       BaseOptions(
         baseUrl: url,
         responseType: ResponseType.json,
-        receiveTimeout: 30000,
-        connectTimeout: 5000,
+        receiveTimeout: 3000,
         headers: {
           "Authorization": token,
-        }
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MTA3NzA1LCJqdGkiOiI5NTUwNGE3MmVmMzM0OThkOGIxZjBmOWJlZmU1ZGJhYyIsInVzZXJfaWQiOjU4fQ.whHBbrEZCyxL4CTpTGhGv4u0ssjhHRyMPJQsi-5tyOA',
+        },
+        connectTimeout: 5000,
       ),
     );
   }
 
-  Future<Response> toGet(String url, {Map<String, dynamic>? queryParams}) async {
+  Future<Response> toGet(String url,
+      {Map<String, dynamic>? queryParams}) async {
     Dio dio = await initDio();
     try {
       return dio.get(url, queryParameters: queryParams);

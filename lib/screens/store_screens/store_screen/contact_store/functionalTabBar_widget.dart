@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/screens/store_screen/contact_store/addressStore_widget.dart';
-import 'package:malina_app/screens/store_screen/tableReservation_widgets/calenadarReservation_widget.dart';
-import 'package:malina_app/screens/store_screen/tableReservation_widgets/numberOFQuests.dart';
+import 'package:malina_app/screens/store_screens/store_screen/contact_store/addressStore_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/tableReservation_widgets/calenadarReservation_widget.dart';
+import 'package:malina_app/screens/store_screens/store_screen/tableReservation_widgets/numberOFQuests.dart';
 
 class FunctionalTabBarWidget extends StatelessWidget {
   final Map<String, dynamic>? infoListOfStore;
