@@ -24,12 +24,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController emailController = TextEditingController();
 
   late RegisterBloc _registerBloc;
-  late Box deviceIdBox;
+  late Box deviceToken;
 
   @override
   void initState() {
     _registerBloc = RegisterBloc();
-    deviceIdBox = Hive.box('deviceIdBox');
+    deviceToken = Hive.box('deviceTokenBox');
     super.initState();
   }
 
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPressed: () {
                     // Box tokenBox = Hive.box('tokenBox');
                     // log(tokenBox.get('token').toString());
-                    log(deviceIdBox.get('deviceId').toString());
+                    log(deviceToken.get('deviceId').toString());
                     _registerBloc.add(
                       PostRegisterEvent(
                         name: nameController.text,
@@ -92,7 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         login: loginController.text,
                         phone: phoneController.text,
                         email: emailController.text,
-                        deviceId: deviceIdBox.get('deviceId').toString(),
+                        deviceId: deviceToken.get('deviceId').toString(),
                       ),
                     );
                   },

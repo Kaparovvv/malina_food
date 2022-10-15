@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "751867903466",
+    "project_id": "malina-app-548d7",
+    "storage_bucket": "malina-app-548d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751867903466:android:0f1712419dbcfbeb3e0693",
+        "android_client_info": {
+          "package_name": "com.example.malina_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751867903466-nsqujd4ov4gpmiv6mucpvft5cebnh01s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDuTi9ubaGnimW0m_rZ0XSIrjIdEaKNwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751867903466-nsqujd4ov4gpmiv6mucpvft5cebnh01s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "751867903466-gatdkd4vcemvqie225v86acggpv8vcj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kg.malina"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751867903466:android:5a3d896d3c0fb08b3e0693",
+        "android_client_info": {
+          "package_name": "com.kg.malina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751867903466-bkjj64pv069b1q43d6pi69kukrjlsjc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kg.malina",
+            "certificate_hash": "c51f973ec92e733531efe44fb29e1c5314470d7a"
+          }
+        },
+        {
+          "client_id": "751867903466-g1ngd7tchgdnvck1eds4bf8na1c1r0v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kg.malina",
+            "certificate_hash": "5844551dc4bc99f4f212ae71abdfc621deffad00"
+          }
+        },
+        {
+          "client_id": "751867903466-lip7liktkhm9vvkmauknirua7hlsum58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kg.malina",
+            "certificate_hash": "e92d09be15189fa6bcad85644d565baecd766855"
+          }
+        },
+        {
+          "client_id": "751867903466-nsqujd4ov4gpmiv6mucpvft5cebnh01s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDuTi9ubaGnimW0m_rZ0XSIrjIdEaKNwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751867903466-nsqujd4ov4gpmiv6mucpvft5cebnh01s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "751867903466-gatdkd4vcemvqie225v86acggpv8vcj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kg.malina"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

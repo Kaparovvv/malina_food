@@ -68,7 +68,7 @@ class _QrCodeScannerScreenState extends State<QrCodeScannerScreen> {
       body: Stack(
         children: [
           Positioned(
-            top: 220.h,
+            top: 174.9.h,
             left: 58.w,
             right: 58.w,
             child: Material(

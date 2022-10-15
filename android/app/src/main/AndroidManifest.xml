@@ -2,7 +2,7 @@
     package="com.example.malina_app">
     <uses-permission android:name="android.permission.CAMERA"/>
    <application
-        android:label="malina_app"
+        android:label="malina"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -23,6 +23,10 @@
               />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CHECK"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
