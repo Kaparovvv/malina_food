@@ -10,6 +10,7 @@ class ApiRequester {
   static String url = 'http://167.99.246.103/myapps/venv/api';
   Future<Dio> initDio() async {
     String token = await tokenBox.get('token', defaultValue: '');
+    log('Api requester ========== $token');
     return Dio(
       BaseOptions(
         baseUrl: url,

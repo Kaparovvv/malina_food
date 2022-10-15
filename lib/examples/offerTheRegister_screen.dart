@@ -21,7 +21,7 @@ class OfferTheRegisterScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: CloseButtonWidget().closeButton(
         () {
-          Navigator.of(context).push(
+          Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (context) => const NavBarWidget(currentIndex: 2),
             ),
@@ -64,10 +64,8 @@ class OfferTheRegisterScreen extends StatelessWidget {
                   builder: (context) => const SignUpScreen(),
                 ),
               );
-              Box deviceIdBox = Hive.box('deviceIdBox');
               Box tokenBox = Hive.box('tokenBox');
               Box refreshTokenBox = Hive.box('refreshTokenBox');
-              log('Device ID ======= ${tokenBox.get('deviceId')}');
               log('Token ======= ${tokenBox.get('token')}');
               log('Refresh token  ======= ${refreshTokenBox.get('refreshToken')}');
             },

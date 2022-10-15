@@ -18,14 +18,12 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   late Box _tokenBox;
   late Box _refreshTokenBox;
-  late Box _deviceIdBox;
 
   late AuthorizedBloc _authorizedBloc;
 
   @override
   void initState() {
     _authorizedBloc = AuthorizedBloc();
-    _deviceIdBox = Hive.box('deviceIdBox');
     _tokenBox = Hive.box('tokenBox');
     _refreshTokenBox = Hive.box('refreshTokenBox');
     super.initState();
@@ -42,7 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: () {
               Hive.box('tokenBox').delete('token');
               Hive.box('refreshTokenBox').delete('refreshToken');
-              Hive.box('deviceIdBox').delete('deviceId');
+              // Hive.box('deviceIdBox').delete('deviceId');
               log('${_tokenBox.get('token')}');
               log('${_refreshTokenBox.get('refreshToken')}');
               Navigator.of(context).pushReplacement(

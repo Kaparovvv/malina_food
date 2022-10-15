@@ -106,6 +106,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         phone: '+996${maskFormatter.getUnmaskedText()}',
                       ),
                     );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignInScreen(
+                          phone: phoneController.text,
+                          prefixPhone: '+996${maskFormatter.getUnmaskedText()}',
+                        ),
+                      ),
+                    );
                   },
                   isErrorText: isErrorText,
                 );

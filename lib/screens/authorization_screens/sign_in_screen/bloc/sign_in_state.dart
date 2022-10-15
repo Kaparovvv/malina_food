@@ -4,7 +4,11 @@ abstract class SignInState {}
 
 class SignInInitial extends SignInState {}
 
-class LoadedSignInState extends SignInState {}
+class LoadedSignInState extends SignInState {
+  final TokensModel tokensModel;
+
+  LoadedSignInState({required this.tokensModel});
+}
 
 class LoadingSignInState extends SignInState {}
 

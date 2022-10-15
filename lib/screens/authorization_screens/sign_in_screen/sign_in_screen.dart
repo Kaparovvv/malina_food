@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/global_blocs/user_authorized/authorized_bloc.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
 import 'package:malina_app/screens/authorization_screens/sign_in_screen/bloc/sign_in_bloc.dart';
 import 'package:malina_app/screens/authorization_screens/sign_up_screen/bloc/sign_up_bloc.dart';
@@ -35,17 +33,19 @@ class _SignInScreenState extends State<SignInScreen> {
 
   final scaffoldKey = GlobalKey();
 
-  late OTPTextEditController _otpTextEditController =
-      OTPTextEditController(codeLength: 6);
+  late OTPTextEditController _otpTextEditController;
   late OTPInteractor _otpInteractor;
 
   String currentIndex = '';
 
-  late AuthorizedBloc _authorizedBloc;
+  // late AuthorizedBloc _authorizedBloc;
+  late Box deviceToken;
 
   @override
   void initState() {
-    _authorizedBloc = AuthorizedBloc();
+    // _otpTextEditController = OTPTextEditController(codeLength: 6);
+    deviceToken = Hive.box('deviceTokenBox');
+    // _authorizedBloc = AuthorizedBloc();
     _signInBloc = SignInBloc();
     _signUpBloc = SignUpBloc();
     _otpInteractor = OTPInteractor();
@@ -109,15 +109,15 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   );
                 }
-
+//862185
                 if (state is LoadedSignInState) {
-                  Box tokenBox = Hive.box('tokenBox');
-                  Box refreshTokenBox = Hive.box('refreshTokenBox');
+                  // Box tokenBox = Hive.box('tokenBox');
+                  // Box refreshTokenBox = Hive.box('refreshTokenBox');
 
-                  log('3 ======= ${tokenBox.get('token')}');
-                  log('3  ======= ${refreshTokenBox.get('refreshToken')}');
-                  tokenBox.get('token') != null &&
-                          refreshTokenBox.get('refreshToken') != null
+                  // log('3 ======= ${tokenBox.get('token')}');
+                  // log('3  ======= ${refreshTokenBox.get('refreshToken')}');
+                  state.tokensModel.token!.isNotEmpty &&
+                          state.tokensModel.refreshToken!.isNotEmpty
                       ? Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -163,8 +163,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     onCompleted: (value) {
                       _signInBloc.add(
                         PostSignInEvent(
-                          phone: '+996995666104',
+                          phone: widget.prefixPhone,
                           confirmationCode: _otpTextEditController.text,
+                          deviceToken: deviceToken.get('deviceToken'),
                         ),
                       );
                     },
@@ -192,5 +193,12 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  Future<void> dispose() async {
+    await _otpTextEditController.stopListen();
+    _otpTextEditController.dispose();
+    super.dispose();
   }
 }

@@ -1,12 +1,15 @@
+import 'dart:developer';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/icon_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
-import 'package:malina_app/examples/deviceID_screen.dart';
+import 'package:malina_app/examples/push_screen.dart';
 import 'package:malina_app/global_widgets/widgets_helpers.dart';
-import 'package:malina_app/helpers/device_id.dart';
 import 'package:malina_app/screens/authorization_screens/register_screen/register_screen.dart';
 import 'package:malina_app/screens/cart_screen/cart_screen.dart';
 import 'package:malina_app/screens/main_screens/categories_screen/categories_screen.dart';
@@ -27,22 +30,12 @@ class NavBarWidget extends StatefulWidget {
 
 class _NavBarWidgetState extends State<NavBarWidget> {
   late int _selectedIndex;
-  final DeviceId _deviceID = DeviceId();
   late String? deviceId;
-  Box deviceIdBox = Hive.box('deviceIdBox');
 
   @override
   void initState() {
     _selectedIndex = widget.currentIndex;
-    _getDeviceId();
     super.initState();
-  }
-
-  Future<void> _getDeviceId() async {
-    deviceId = await _deviceID.getId();
-    if (deviceId!.isNotEmpty) {
-      deviceIdBox.put('deviceId', deviceId);
-    }
   }
 
   void onItemTapped(int index) {
@@ -60,7 +53,6 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           children: const [
             RegisterScreen(),
             QrCodeScannerScreen(),
-            // DeviceIdScreen(),
             CategoriesScreen(),
             CartScreen(),
             ProfileScreen(),
