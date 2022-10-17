@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:malina_app/commons/boxShadow_helper.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/commons/widget_state.dart';
@@ -12,8 +10,6 @@ import 'package:malina_app/screens/store_screens/product_screen/local_widgets/ad
 import 'package:malina_app/screens/store_screens/product_screen/local_widgets/productNutrients_widget.dart';
 import 'package:malina_app/screens/store_screens/product_screen/local_widgets/product_offered_widget.dart';
 import 'package:malina_app/screens/store_screens/product_screen/local_widgets/supplements_widget.dart';
-import 'package:malina_app/screens/store_screens/store_screen/store_menu/typesOfDishesTabBar_widget.dart';
-import 'package:malina_app/screens/store_screens/store_screen/tableReservation_widgets/numberOFQuests.dart';
 
 class ProductScreen extends StatefulWidget {
   final String? nameStore;

@@ -101,11 +101,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   maskFormatter: maskFormatter,
                   phoneController: phoneController,
                   onTab: () {
-                    _signUpBloc.add(
-                      PostSignUpEvent(
-                        phone: '+996${maskFormatter.getUnmaskedText()}',
-                      ),
-                    );
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -115,6 +110,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                     );
+                    // _signUpBloc.add(
+                    //   PostSignUpEvent(
+                    //     phone: '+996${maskFormatter.getUnmaskedText()}',
+                    //   ),
+                    // );
                   },
                   isErrorText: isErrorText,
                 );

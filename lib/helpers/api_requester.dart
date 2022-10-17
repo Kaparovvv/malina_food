@@ -10,7 +10,7 @@ class ApiRequester {
   static String url = 'http://167.99.246.103/myapps/venv/api';
   Future<Dio> initDio() async {
     String token = await tokenBox.get('token', defaultValue: '');
-    log('Api requester ========== $token');
+    // log('Api requester ========== $token');
     return Dio(
       BaseOptions(
         baseUrl: url,
@@ -18,7 +18,6 @@ class ApiRequester {
         receiveTimeout: 3000,
         headers: {
           "Authorization": token,
-          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MTA3NzA1LCJqdGkiOiI5NTUwNGE3MmVmMzM0OThkOGIxZjBmOWJlZmU1ZGJhYyIsInVzZXJfaWQiOjU4fQ.whHBbrEZCyxL4CTpTGhGv4u0ssjhHRyMPJQsi-5tyOA',
         },
         connectTimeout: 5000,
       ),

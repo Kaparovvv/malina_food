@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:malina_app/commons/textStyle_helper.dart';
 import 'package:malina_app/commons/them_helper.dart';
 import 'package:malina_app/global_widgets/loadingIndicator_widget.dart';
+import 'package:malina_app/helpers/catch_exception.dart';
 import 'package:malina_app/screens/authorization_screens/sign_in_screen/bloc/sign_in_bloc.dart';
 import 'package:malina_app/screens/authorization_screens/sign_up_screen/bloc/sign_up_bloc.dart';
 import 'package:malina_app/screens/authorization_screens/sign_up_screen/local_widgets/close_button_widget.dart';
@@ -43,7 +44,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void initState() {
-    // _otpTextEditController = OTPTextEditController(codeLength: 6);
     deviceToken = Hive.box('deviceTokenBox');
     // _authorizedBloc = AuthorizedBloc();
     _signInBloc = SignInBloc();
@@ -67,12 +67,12 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: CloseButtonWidget().closeButton(
         () {
           Navigator.pop(context);
         },
       ),
-      key: scaffoldKey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -134,7 +134,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 }
                 return Padding(
                   padding: EdgeInsets.only(
-                      top: 13.h, bottom: 20.h, left: 67.5.w, right: 67.5.w),
+                    top: 13.h,
+                    bottom: 20.h,
+                    left: 67.5.w,
+                    right: 67.5.w,
+                  ),
                   child: PinCodeTextField(
                     controller: _otpTextEditController,
                     appContext: context,
@@ -154,20 +158,26 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     onChanged: (value) {
                       debugPrint(value);
-                      setState(
-                        () {
-                          currentIndex = value;
-                        },
-                      );
+                      // setState(
+                      //   () {
+                      //     currentIndex = value;
+                      //     log(currentIndex.toString());
+                      //   },
+                      // );
                     },
                     onCompleted: (value) {
-                      _signInBloc.add(
-                        PostSignInEvent(
-                          phone: widget.prefixPhone,
-                          confirmationCode: _otpTextEditController.text,
-                          deviceToken: deviceToken.get('deviceToken'),
-                        ),
-                      );
+                      try {
+                        _signInBloc.add(
+                          PostSignInEvent(
+                            phone: widget.prefixPhone,
+                            confirmationCode: value,
+                            deviceToken:
+                                deviceToken.get('deviceToken').toString(),
+                          ),
+                        );
+                      } catch (e) {
+                        CatchException.convertException(e);
+                      }
                     },
                   ),
                 );
@@ -197,8 +207,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Future<void> dispose() async {
-    await _otpTextEditController.stopListen();
-    _otpTextEditController.dispose();
+    _otpTextEditController.stopListen();
     super.dispose();
   }
 }

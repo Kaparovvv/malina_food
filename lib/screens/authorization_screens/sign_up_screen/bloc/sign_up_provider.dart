@@ -9,11 +9,17 @@ class SignUpProvider {
     required String phone,
   }) async {
     try {
+      log('pro1');
       ApiRequester requester = ApiRequester();
+      log('pro2');
+      log(phone.toString());
+
       Response response = await requester.toPost('/user/send/', body: {
         'phone': phone,
       });
+      log('pro3');
       if (response.statusCode! >= 200 && response.statusCode! < 300) {
+        log('pro4');
         log(response.data.toString());
       } else if (response.statusCode == 429) {
         throw CatchException.convertException(response.data);
