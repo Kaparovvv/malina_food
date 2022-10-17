@@ -34,4 +34,6 @@ class ThemeHelper {
   static Color rgb135 = const Color.fromRGBO(135, 135, 135, 0.15);
   static Color color898A8D = const Color(0xff898A8D);
   static Color primaryDark = const Color(0xff2A00A2);
+  static Color colorF9F9F9 = const Color(0xffF9F9F9);
+  static Color color5F5F5F = const Color(0xff5F5F5F);
 }

@@ -27,4 +27,10 @@ class BoxShadowHelper {
     offset: const Offset(0, 0),
     blurRadius: 10.r,
   );
+
+  static BoxShadow rgb159 = BoxShadow(
+    color: ThemeHelper.rgb159,
+    offset: const Offset(0, 4),
+    blurRadius: 15.r,
+  );
 }

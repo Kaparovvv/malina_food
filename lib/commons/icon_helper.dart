@@ -37,4 +37,5 @@ class IconHelper {
   static String whatsapp = 'assets/icons/whatsapp.png';
   static String starBorder = 'assets/icons/star_border.png';
   static String buttonRight = 'assets/icons/button_right.png';
+  static String deleteIcon = 'assets/icons/delete.png';
 }
